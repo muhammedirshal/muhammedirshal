@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join My Team — Bystander</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0a0f;
+    --paper: #fafaf7;
+    --accent: #2d1b69;
+    --gold: #c9a84c;
+    --gold-light: #f5e6c0;
+    --electric: #4361ee;
+    --mint: #00c897;
+    --rose: #ff4d6d;
+    --muted: #8a8a9a;
+    --border: #e0e0d8;
+    --card: #ffffff;
+    --section-gap: 2.5rem;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Decorative background */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(45,27,105,0.07) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    bottom: -150px; left: -150px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(67,97,238,0.06) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page-wrapper {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── Hero Header ── */
+  .hero {
+    background: var(--accent);
+    border-radius: 20px 20px 0 0;
+    padding: 3rem 3rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -60px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(201,168,76,0.18) 0%, transparent 65%);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -40px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(67,97,238,0.2) 0%, transparent 65%);
+  }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(201,168,76,0.2);
+    color: var(--gold);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border-radius: 100px;
+    border: 1px solid rgba(201,168,76,0.3);
+    margin-bottom: 1.2rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.12;
+    margin-bottom: 1.2rem;
+    position: relative;
+    z-index: 1;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero-desc {
+    font-size: 0.97rem;
+    line-height: 1.72;
+    color: rgba(255,255,255,0.78);
+    max-width: 560px;
+    position: relative;
+    z-index: 1;
+    border-left: 3px solid var(--gold);
+    padding-left: 1.1rem;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: rgba(255,255,255,0.09);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 100px;
+    padding: 0.4rem 1rem;
+    color: rgba(255,255,255,0.85);
+    font-size: 0.82rem;
+    font-weight: 500;
+  }
+  .hero-pill svg { width: 14px; height: 14px; opacity: 0.7; }
+
+  /* ── Progress bar ── */
+  .progress-wrap {
+    background: var(--accent);
+    padding: 0 3rem 1.5rem;
+  }
+  .progress-bar-outer {
+    height: 5px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 100px;
+  }
+  .progress-bar-inner {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--gold), #f0c040);
+    border-radius: 100px;
+    transition: width 0.6s cubic-bezier(.4,0,.2,1);
+  }
+  .progress-label {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+    text-align: right;
+  }
+
+  /* ── Section card ── */
+  .section-card {
+    background: var(--card);
+    border-radius: 0;
+    border: 1px solid var(--border);
+    border-top: none;
+    padding: 2.5rem 3rem;
+    animation: slideUp 0.4s ease both;
+  }
+  .section-card:last-of-type {
+    border-radius: 0 0 20px 20px;
+  }
+  .section-card + .section-card {
+    border-top: none;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-num {
+    width: 34px; height: 34px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  /* ── Field ── */
+  .field-group {
+    margin-bottom: 1.8rem;
+  }
+  .field-label {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.55rem;
+  }
+  .field-label .q-num {
+    color: var(--gold);
+    font-size: 0.78rem;
+    font-weight: 700;
+    background: var(--gold-light);
+    border-radius: 5px;
+    padding: 0.1rem 0.45rem;
+  }
+  .required-star { color: var(--rose); margin-left: 2px; }
+  .optional-tag {
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: var(--muted);
+    margin-left: 0.3rem;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="url"],
+  textarea {
+    width: 100%;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.93rem;
+    color: var(--ink);
+    background: var(--paper);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    -webkit-appearance: none;
+  }
+  input:focus, textarea:focus {
+    border-color: var(--electric);
+    box-shadow: 0 0 0 3px rgba(67,97,238,0.1);
+    background: #fff;
+  }
+  textarea { min-height: 110px; resize: vertical; }
+
+  /* ── Radio / Checkbox grid ── */
+  .options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 0.6rem;
+  }
+  .options-grid.single-col { grid-template-columns: 1fr; }
+
+  .option-item {
+    position: relative;
+  }
+  .option-item input { display: none; }
+  .option-item label {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.6rem 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 9px;
+    cursor: pointer;
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: var(--ink);
+    background: var(--paper);
+    transition: all 0.18s ease;
+    user-select: none;
+  }
+  .option-item label:hover {
+    border-color: var(--electric);
+    background: rgba(67,97,238,0.04);
+  }
+  .option-item input:checked + label {
+    border-color: var(--electric);
+    background: rgba(67,97,238,0.07);
+    color: var(--electric);
+    font-weight: 600;
+  }
+  .option-item input[type="radio"]:checked + label {
+    border-color: var(--accent);
+    background: rgba(45,27,105,0.06);
+    color: var(--accent);
+  }
+  /* Custom indicator */
+  .option-item label::before {
+    content: '';
+    width: 16px; height: 16px;
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    flex-shrink: 0;
+    transition: all 0.15s;
+    background: #fff;
+  }
+  .option-item input[type="radio"] + label::before {
+    border-radius: 50%;
+  }
+  .option-item input:checked + label::before {
+    background: var(--electric);
+    border-color: var(--electric);
+    box-shadow: inset 0 0 0 3px #fff;
+  }
+  .option-item input[type="radio"]:checked + label::before {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+
+  /* ── Divider ── */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 2rem 0;
+  }
+
+  /* ── Submit ── */
+  .submit-section {
+    padding: 2.5rem 3rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 20px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: gap;
+    gap: 1rem;
+  }
+  .submit-note {
+    font-size: 0.82rem;
+    color: var(--muted);
+    max-width: 340px;
+    line-height: 1.55;
+  }
+  .submit-btn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 0.9rem 2.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.97rem;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 20px rgba(45,27,105,0.25);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .submit-btn:hover {
+    background: #1e0f4f;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(45,27,105,0.32);
+  }
+  .submit-btn svg { width: 18px; height: 18px; }
+
+  /* Success */
+  .success-screen {
+    display: none;
+    text-align: center;
+    padding: 4rem 2rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+  }
+  .success-icon {
+    width: 72px; height: 72px;
+    background: rgba(0,200,151,0.1);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+  }
+  .success-screen h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  .success-screen p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  /* Google Form Guide CTA */
+  .gform-guide {
+    background: linear-gradient(135deg, #f0f4ff 0%, #faf7ff 100%);
+    border: 1.5px solid #d4ddff;
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    margin-top: 2rem;
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+  }
+  .gform-guide-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+  .gform-guide h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 0.35rem;
+  }
+  .gform-guide p {
+    font-size: 0.83rem;
+    color: #555;
+    line-height: 1.6;
+  }
+  .gform-guide a {
+    display: inline-block;
+    margin-top: 0.6rem;
+    background: var(--electric);
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 0.45rem 1.1rem;
+    border-radius: 8px;
+    transition: background 0.2s;
+  }
+  .gform-guide a:hover { background: #2d4fcf; }
+
+  @media (max-width: 600px) {
+    .page-wrapper { padding: 1.5rem 1rem 4rem; }
+    .hero, .section-card, .submit-section { padding: 1.8rem 1.5rem; }
+    .progress-wrap { padding: 0 1.5rem 1.2rem; }
+    .options-grid { grid-template-columns: 1fr; }
+    .submit-section { flex-direction: column; align-items: stretch; }
+    .submit-btn { justify-content: center; }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- Google Form Setup Guide -->
+  <div class="gform-guide">
+    <div class="gform-guide-icon">📋</div>
+    <div>
+      <h4>How to create this as a Google Form</h4>
+      <p>Go to <strong>forms.google.com</strong> → click <strong>Blank form</strong> → copy each question below in order. This page is your exact blueprint — all field types, options, and sections are labelled. You can also share this HTML page directly as your application form.</p>
+      <a href="https://forms.google.com" target="_blank">Open Google Forms →</a>
+    </div>
+  </div>
+
+  <form id="hiring-form" autocomplete="off" style="margin-top:1.5rem;">
+
+    <!-- ── HERO ── -->
+    <div class="hero">
+      
+      <h1>Join My Team</h1>
+      <p class="hero-desc">I'm currently looking for team members who can contribute on a part-time basis alongside their studies, articleship, job, or other commitments. The time commitment is flexible and will depend on the role.</p>
+      <div class="hero-meta">
+        <div class="hero-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Flexible Hours
+        </div>
+        <div class="hero-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Multiple Roles Open
+        </div>
+        <div class="hero-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Part-Time Friendly
+        </div>
+      </div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-bar-outer"><div class="progress-bar-inner" id="progress-bar"></div></div>
+      <div class="progress-label" id="progress-label">0 of 22 answered</div>
+    </div>
+
+    <!-- ── S1: Basic Info ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">1</div>
+        <div class="section-title">Basic Information</div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-label"><span class="q-num">1</span> Full Name <span class="required-star">*</span></div>
+        <input type="text" name="full_name" placeholder="Your full name" required>
+      </div>
+      <div class="field-group">
+        <div class="field-label"><span class="q-num">2</span> Mobile Number <span class="required-star">*</span></div>
+        <input type="tel" name="mobile" placeholder="+91 XXXXX XXXXX" required>
+      </div>
+      <div class="field-group">
+        <div class="field-label"><span class="q-num">3</span> Email Address <span class="required-star">*</span></div>
+        <input type="email" name="email" placeholder="you@example.com" required>
+      </div>
+      <div class="field-group">
+        <div class="field-label"><span class="q-num">4</span> Place / City <span class="required-star">*</span></div>
+        <input type="text" name="city" placeholder="e.g. Mumbai, Bengaluru, Delhi…" required>
+      </div>
+      <div class="field-group">
+        <div class="field-label"><span class="q-num">5</span> Age <span class="required-star">*</span></div>
+        <input type="number" name="age" placeholder="Your age" min="15" max="60" required style="max-width:160px;">
+      </div>
+      <div class="field-group">
+        <div class="field-label"><span class="q-num">6</span> LinkedIn Profile <span class="optional-tag">(Optional)</span></div>
+        <input type="url" name="linkedin" placeholder="https://linkedin.com/in/yourname">
+      </div>
+      <div class="field-group" style="margin-bottom:0;">
+        <div class="field-label"><span class="q-num">7</span> Instagram Profile <span class="optional-tag">(Optional)</span></div>
+        <input type="text" name="instagram" placeholder="@yourhandle">
+      </div>
+    </div>
+
+    <!-- ── S2: Education & Career ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">2</div>
+        <div class="section-title">Education &amp; Career</div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-label"><span class="q-num">8</span> Current Status <span class="required-star">*</span></div>
+        <div class="options-grid single-col">
+          <div class="option-item"><input type="radio" name="status" id="s-school" value="School Student"><label for="s-school">School Student</label></div>
+          <div class="option-item"><input type="radio" name="status" id="s-college" value="College Student"><label for="s-college">College Student</label></div>
+          <div class="option-item"><input type="radio" name="status" id="s-cafound" value="CA Foundation"><label for="s-cafound">CA Foundation</label></div>
+          <div class="option-item"><input type="radio" name="status" id="s-caint" value="CA Intermediate"><label for="s-caint">CA Intermediate</label></div>
+          <div class="option-item"><input type="radio" name="status" id="s-cafinal" value="CA Final"><label for="s-cafinal">CA Final</label></div>
+          <div class="option-item"><input type="radio" name="status" id="s-working" value="Working Professional"><label for="s-working">Working Professional</label></div>
+          <div class="option-item"><input type="radio" name="status" id="s-entrepreneur" value="Entrepreneur"><label for="s-entrepreneur">Entrepreneur</label></div>
+          <div class="option-item"><input type="radio" name="status" id="s-other" value="Other"><label for="s-other">Other</label></div>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-label"><span class="q-num">9</span> Current Occupation & Experience <span class="optional-tag">(if any)</span></div>
+        <input type="text" name="occupation" placeholder="e.g. Finance Intern at XYZ · 1 year experience">
+      </div>
+
+      <div class="field-group">
+        <div class="field-label"><span class="q-num">10</span> Computer Skills <span class="optional-tag">(Select all that apply)</span></div>
+        <div class="options-grid">
+          <div class="option-item"><input type="checkbox" name="comp_skills" id="cs-excel" value="MS Excel"><label for="cs-excel">MS Excel</label></div>
+          <div class="option-item"><input type="checkbox" name="comp_skills" id="cs-gsheets" value="Google Sheets"><label for="cs-gsheets">Google Sheets</label></div>
+          <div class="option-item"><input type="checkbox" name="comp_skills" id="cs-ppt" value="PowerPoint"><label for="cs-ppt">PowerPoint</label></div>
+          <div class="option-item"><input type="checkbox" name="comp_skills" id="cs-word" value="Word"><label for="cs-word">Word</label></div>
+          <div class="option-item"><input type="checkbox" name="comp_skills" id="cs-canva" value="Canva"><label for="cs-canva">Canva</label></div>
+          <div class="option-item"><input type="checkbox" name="comp_skills" id="cs-ps" value="Photoshop"><label for="cs-ps">Photoshop</label></div>
+          <div class="option-item"><input type="checkbox" name="comp_skills" id="cs-ai" value="Illustrator"><label for="cs-ai">Illustrator</label></div>
+          <div class="option-item"><input type="checkbox" name="comp_skills" id="cs-notion" value="Notion"><label for="cs-notion">Notion</label></div>
+          <div class="option-item"><input type="checkbox" name="comp_skills" id="cs-chatgpt" value="ChatGPT / AI Tools"><label for="cs-chatgpt">ChatGPT / AI Tools</label></div>
+          <div class="option-item"><input type="checkbox" name="comp_skills" id="cs-video" value="Video Editing Software"><label for="cs-video">Video Editing Software</label></div>
+          <div class="option-item"><input type="checkbox" name="comp_skills" id="cs-web" value="Website Building"><label for="cs-web">Website Building</label></div>
+          <div class="option-item"><input type="checkbox" name="comp_skills" id="cs-basiccode" value="Basic Coding"><label for="cs-basiccode">Basic Coding</label></div>
+          <div class="option-item"><input type="checkbox" name="comp_skills" id="cs-advcode" value="Advanced Coding"><label for="cs-advcode">Advanced Coding</label></div>
+          <div class="option-item"><input type="checkbox" name="comp_skills" id="cs-data" value="Data Analysis"><label for="cs-data">Data Analysis</label></div>
+          <div class="option-item"><input type="checkbox" name="comp_skills" id="cs-none" value="None"><label for="cs-none">None</label></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── S3: Creative & Professional Skills ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">3</div>
+        <div class="section-title">Creative &amp; Professional Skills</div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-label"><span class="q-num">11</span> Creative &amp; Professional Skills <span class="optional-tag">(Select all that apply)</span></div>
+        <div class="options-grid">
+          <div class="option-item"><input type="checkbox" name="pro_skills" id="ps-ve" value="Video Editing"><label for="ps-ve">Video Editing</label></div>
+          <div class="option-item"><input type="checkbox" name="pro_skills" id="ps-pd" value="Poster Designing"><label for="ps-pd">Poster Designing</label></div>
+          <div class="option-item"><input type="checkbox" name="pro_skills" id="ps-gd" value="Graphic Designing"><label for="ps-gd">Graphic Designing</label></div>
+          <div class="option-item"><input type="checkbox" name="pro_skills" id="ps-cw" value="Content Writing"><label for="ps-cw">Content Writing</label></div>
+          <div class="option-item"><input type="checkbox" name="pro_skills" id="ps-copy" value="Copywriting"><label for="ps-copy">Copywriting</label></div>
+          <div class="option-item"><input type="checkbox" name="pro_skills" id="ps-smm" value="Social Media Management"><label for="ps-smm">Social Media Management</label></div>
+          <div class="option-item"><input type="checkbox" name="pro_skills" id="ps-photo" value="Photography"><label for="ps-photo">Photography</label></div>
+          <div class="option-item"><input type="checkbox" name="pro_skills" id="ps-videog" value="Videography"><label for="ps-videog">Videography</label></div>
+          <div class="option-item"><input type="checkbox" name="pro_skills" id="ps-cm" value="Community Management"><label for="ps-cm">Community Management</label></div>
+          <div class="option-item"><input type="checkbox" name="pro_skills" id="ps-ps" value="Public Speaking"><label for="ps-ps">Public Speaking</label></div>
+          <div class="option-item"><input type="checkbox" name="pro_skills" id="ps-em" value="Event Management"><label for="ps-em">Event Management</label></div>
+          <div class="option-item"><input type="checkbox" name="pro_skills" id="ps-sales" value="Sales"><label for="ps-sales">Sales</label></div>
+          <div class="option-item"><input type="checkbox" name="pro_skills" id="ps-mktg" value="Marketing"><label for="ps-mktg">Marketing</label></div>
+          <div class="option-item"><input type="checkbox" name="pro_skills" id="ps-calling" value="Calling & Communication"><label for="ps-calling">Calling &amp; Communication</label></div>
+          <div class="option-item"><input type="checkbox" name="pro_skills" id="ps-net" value="Networking"><label for="ps-net">Networking</label></div>
+          <div class="option-item"><input type="checkbox" name="pro_skills" id="ps-res" value="Research"><label for="ps-res">Research</label></div>
+          <div class="option-item"><input type="checkbox" name="pro_skills" id="ps-bd" value="Business Development"><label for="ps-bd">Business Development</label></div>
+          <div class="option-item"><input type="checkbox" name="pro_skills" id="ps-ops" value="Operations"><label for="ps-ops">Operations</label></div>
+          <div class="option-item"><input type="checkbox" name="pro_skills" id="ps-fin" value="Finance & Accounts"><label for="ps-fin">Finance &amp; Accounts</label></div>
+          <div class="option-item"><input type="checkbox" name="pro_skills" id="ps-teach" value="Teaching / Mentoring"><label for="ps-teach">Teaching / Mentoring</label></div>
+          <div class="option-item"><input type="checkbox" name="pro_skills" id="ps-webdev" value="Website Development"><label for="ps-webdev">Website Development</label></div>
+          <div class="option-item"><input type="checkbox" name="pro_skills" id="ps-aia" value="AI Automation"><label for="ps-aia">AI Automation</label></div>
+          <div class="option-item"><input type="checkbox" name="pro_skills" id="ps-other" value="Other"><label for="ps-other">Other</label></div>
+        </div>
+      </div>
+
+      <div class="field-group" style="margin-bottom:0;">
+        <div class="field-label"><span class="q-num">12</span> Other Skills <span class="optional-tag">(Anything not listed above)</span></div>
+        <textarea name="other_skills" placeholder="Describe any other skills or talents you have…"></textarea>
+      </div>
+    </div>
+
+    <!-- ── S4: Interest Areas ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">4</div>
+        <div class="section-title">Interest Areas</div>
+      </div>
+      <div class="field-group" style="margin-bottom:0;">
+        <div class="field-label"><span class="q-num">13</span> Which areas would you like to work in? <span class="required-star">*</span></div>
+        <div class="options-grid">
+          <div class="option-item"><input type="checkbox" name="interests" id="in-cc" value="Content Creation"><label for="in-cc">Content Creation</label></div>
+          <div class="option-item"><input type="checkbox" name="interests" id="in-cb" value="Community Building"><label for="in-cb">Community Building</label></div>
+          <div class="option-item"><input type="checkbox" name="interests" id="in-ev" value="Events"><label for="in-ev">Events</label></div>
+          <div class="option-item"><input type="checkbox" name="interests" id="in-sp" value="Startup Projects"><label for="in-sp">Startup Projects</label></div>
+          <div class="option-item"><input type="checkbox" name="interests" id="in-ei" value="Education Initiatives"><label for="in-ei">Education Initiatives</label></div>
+          <div class="option-item"><input type="checkbox" name="interests" id="in-sm" value="Social Media"><label for="in-sm">Social Media</label></div>
+          <div class="option-item"><input type="checkbox" name="interests" id="in-mktg" value="Marketing"><label for="in-mktg">Marketing</label></div>
+          <div class="option-item"><input type="checkbox" name="interests" id="in-tech" value="Technology"><label for="in-tech">Technology</label></div>
+          <div class="option-item"><input type="checkbox" name="interests" id="in-ops" value="Operations"><label for="in-ops">Operations</label></div>
+          <div class="option-item"><input type="checkbox" name="interests" id="in-bd" value="Business Development"><label for="in-bd">Business Development</label></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── S5: Commitment ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">5</div>
+        <div class="section-title">Commitment &amp; Expectations</div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-label"><span class="q-num">14</span> How many hours can you contribute per week? <span class="required-star">*</span></div>
+        <div class="options-grid single-col">
+          <div class="option-item"><input type="radio" name="hours" id="h1" value="Less than 2 Hours"><label for="h1">Less than 2 Hours</label></div>
+          <div class="option-item"><input type="radio" name="hours" id="h2" value="2–5 Hours"><label for="h2">2–5 Hours</label></div>
+          <div class="option-item"><input type="radio" name="hours" id="h3" value="5–10 Hours"><label for="h3">5–10 Hours</label></div>
+          <div class="option-item"><input type="radio" name="hours" id="h4" value="10–20 Hours"><label for="h4">10–20 Hours</label></div>
+          <div class="option-item"><input type="radio" name="hours" id="h5" value="More than 20 Hours"><label for="h5">More than 20 Hours</label></div>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-label"><span class="q-num">15</span> Are you looking for: <span class="optional-tag">(Select all that apply)</span></div>
+        <div class="options-grid">
+          <div class="option-item"><input type="checkbox" name="looking_for" id="lf-learn" value="Learning Opportunities"><label for="lf-learn">Learning Opportunities</label></div>
+          <div class="option-item"><input type="checkbox" name="looking_for" id="lf-net" value="Networking"><label for="lf-net">Networking</label></div>
+          <div class="option-item"><input type="checkbox" name="looking_for" id="lf-intern" value="Internship Experience"><label for="lf-intern">Internship Experience</label></div>
+          <div class="option-item"><input type="checkbox" name="looking_for" id="lf-vol" value="Volunteer Experience"><label for="lf-vol">Volunteer Experience</label></div>
+          <div class="option-item"><input type="checkbox" name="looking_for" id="lf-paid" value="Paid Opportunities"><label for="lf-paid">Paid Opportunities</label></div>
+          <div class="option-item"><input type="checkbox" name="looking_for" id="lf-biz" value="Business Partnership"><label for="lf-biz">Business Partnership</label></div>
+          <div class="option-item"><input type="checkbox" name="looking_for" id="lf-lt" value="Long-Term Team Role"><label for="lf-lt">Long-Term Team Role</label></div>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-label"><span class="q-num">16</span> How soon can you start? <span class="required-star">*</span></div>
+        <div class="options-grid single-col">
+          <div class="option-item"><input type="radio" name="availability" id="av1" value="Immediately"><label for="av1">Immediately</label></div>
+          <div class="option-item"><input type="radio" name="availability" id="av2" value="Within 1 Week"><label for="av2">Within 1 Week</label></div>
+          <div class="option-item"><input type="radio" name="availability" id="av3" value="Within 1 Month"><label for="av3">Within 1 Month</label></div>
+          <div class="option-item"><input type="radio" name="availability" id="av4" value="More than 1 Month"><label for="av4">More than 1 Month</label></div>
+        </div>
+      </div>
+
+      <div class="field-group" style="margin-bottom:0;">
+        <div class="field-label"><span class="q-num">17</span> Expected Monthly Compensation <span class="optional-tag">(if applicable)</span></div>
+        <div class="options-grid single-col">
+          <div class="option-item"><input type="radio" name="compensation" id="comp1" value="Not expecting compensation currently"><label for="comp1">Not expecting compensation currently</label></div>
+          <div class="option-item"><input type="radio" name="compensation" id="comp2" value="₹5,000 – ₹10,000"><label for="comp2">₹5,000 – ₹10,000</label></div>
+          <div class="option-item"><input type="radio" name="compensation" id="comp3" value="₹10,000 – ₹20,000"><label for="comp3">₹10,000 – ₹20,000</label></div>
+          <div class="option-item"><input type="radio" name="compensation" id="comp4" value="₹20,000+"><label for="comp4">₹20,000+</label></div>
+          <div class="option-item"><input type="radio" name="compensation" id="comp5" value="Depends on role and responsibilities"><label for="comp5">Depends on role and responsibilities</label></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── S6: Personality Fit ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">6</div>
+        <div class="section-title">Personality Fit</div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-label"><span class="q-num">18</span> Why do you want to work with me? <span class="required-star">*</span></div>
+        <textarea name="why_work" placeholder="Tell us what draws you to the Bystander mission and this team…" required></textarea>
+      </div>
+      <div class="field-group">
+        <div class="field-label"><span class="q-num">19</span> Tell us about a project, achievement, or initiative you're proud of <span class="required-star">*</span></div>
+        <textarea name="achievement" placeholder="Describe the context, what you did, and the outcome…" required></textarea>
+      </div>
+      <div class="field-group" style="margin-bottom:0;">
+        <div class="field-label"><span class="q-num">20</span> What excites you the most? <span class="required-star">*</span></div>
+        <textarea name="excites" placeholder="What lights you up — in work, learning, or life?" required></textarea>
+      </div>
+    </div>
+
+    <!-- ── S7: Final ── -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">7</div>
+        <div class="section-title">Final Questions</div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-label"><span class="q-num">21</span> Ideal role if selected <span class="required-star">*</span></div>
+        <textarea name="ideal_role" placeholder="What role would you ideally take? What would you own?" required></textarea>
+      </div>
+
+      <div class="field-group">
+        <div class="field-label"><span class="q-num">22</span> Portfolio / Proof of Work <span class="optional-tag">(link, if any)</span></div>
+        <input type="url" name="portfolio" placeholder="https://your-portfolio.com or Drive link">
+      </div>
+
+      <div class="field-group">
+        <div class="field-label"><span class="q-num">23</span> How did you find me? <span class="required-star">*</span></div>
+        <div class="options-grid single-col">
+          <div class="option-item"><input type="radio" name="source" id="src-ig" value="Instagram"><label for="src-ig">Instagram</label></div>
+          <div class="option-item"><input type="radio" name="source" id="src-li" value="LinkedIn"><label for="src-li">LinkedIn</label></div>
+          <div class="option-item"><input type="radio" name="source" id="src-wa" value="WhatsApp"><label for="src-wa">WhatsApp</label></div>
+          <div class="option-item"><input type="radio" name="source" id="src-ref" value="Friend Referral"><label for="src-ref">Friend Referral</label></div>
+          <div class="option-item"><input type="radio" name="source" id="src-ev" value="Event"><label for="src-ev">Event</label></div>
+          <div class="option-item"><input type="radio" name="source" id="src-cm" value="Community Member"><label for="src-cm">Community Member</label></div>
+          <div class="option-item"><input type="radio" name="source" id="src-oth" value="Other"><label for="src-oth">Other</label></div>
+        </div>
+      </div>
+
+      <div class="field-group" style="margin-bottom:0;">
+        <div class="field-label"><span class="q-num">24</span> Anything else you'd like us to know? <span class="optional-tag">(Optional)</span></div>
+        <textarea name="anything_else" placeholder="Any questions, context, links, or thoughts…"></textarea>
+      </div>
+    </div>
+
+    <!-- ── Submit ── -->
+    <div class="submit-section">
+      <p class="submit-note">All responses are confidential. We'll reach out within 5–7 working days if there's a fit. Thank you for your interest!</p>
+      <button type="submit" class="submit-btn">
+        Submit Application
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </div>
+
+  </form>
+
+  <!-- Success screen -->
+  <div class="success-screen" id="success">
+    <div class="success-icon">🎉</div>
+    <h2>Application Submitted!</h2>
+    <p>Thank you for your interest in the Bystander team. We'll review your application and reach out within 5–7 working days if there's a great fit.</p>
+  </div>
+
+</div>
+
+<script>
+  // Progress tracking
+  const form = document.getElementById('hiring-form');
+  const bar = document.getElementById('progress-bar');
+  const label = document.getElementById('progress-label');
+  const totalQ = 24;
+
+  function countAnswered() {
+    let answered = 0;
+    const texts = form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="url"], textarea');
+    texts.forEach(el => { if (el.value.trim()) answered++; });
+    const radioGroups = {};
+    form.querySelectorAll('input[type="radio"]:checked').forEach(el => { radioGroups[el.name] = 1; });
+    answered += Object.keys(radioGroups).length;
+    const checkGroups = {};
+    form.querySelectorAll('input[type="checkbox"]:checked').forEach(el => { checkGroups[el.name] = 1; });
+    answered += Object.keys(checkGroups).length;
+    return Math.min(answered, totalQ);
+  }
+
+  function updateProgress() {
+    const n = countAnswered();
+    const pct = Math.round((n / totalQ) * 100);
+    bar.style.width = pct + '%';
+    label.textContent = `${n} of ${totalQ} answered`;
+  }
+
+  form.addEventListener('input', updateProgress);
+  form.addEventListener('change', updateProgress);
+
+  // Submit
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    form.style.display = 'none';
+    document.getElementById('success').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+</body>
+</html>

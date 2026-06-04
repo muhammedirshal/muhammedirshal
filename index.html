@@ -24,7 +24,7 @@
   html{scroll-behavior:smooth;}
   body{font-family:'DM Sans',sans-serif;background:var(--light);color:var(--dark);overflow-x:hidden;}
 
-  /* ── NAV ── */
+  /* NAV */
   nav{
     position:fixed;top:0;left:0;right:0;z-index:999;
     background:rgba(255,255,255,.92);backdrop-filter:blur(14px);
@@ -47,7 +47,7 @@
   .mobile-menu a{text-decoration:none;color:var(--dark);font-weight:500;font-size:1rem;padding:.5rem 0;border-bottom:1px solid var(--purple-pale);}
   .mobile-menu.open{display:flex;}
 
-  /* ── HERO ── */
+  /* HERO */
   #hero{
     min-height:100vh;padding-top:64px;
     display:grid;place-items:center;
@@ -89,16 +89,14 @@
   .role-pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.85);padding:.35rem .9rem;border-radius:40px;font-size:.8rem;font-weight:500;}
   .hero-photo{
     width:140px;height:140px;border-radius:50%;
-    background:linear-gradient(135deg,var(--purple-mid),var(--purple-lt));
     display:flex;align-items:center;justify-content:center;
-    font-size:3rem;margin:0 auto 2rem;
+    margin:0 auto 2rem;
     border:4px solid rgba(212,175,55,.4);
     box-shadow:0 0 60px rgba(74,44,219,.4);
     animation:fadeUp .8s .05s ease both;
     overflow:hidden;position:relative;
   }
   .hero-photo img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
-  .photo-hint{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:rgba(255,255,255,.7);font-size:.65rem;font-weight:600;letter-spacing:.5px;text-align:center;padding:.5rem;}
   .hero-btns{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;animation:fadeUp .8s .45s ease both;}
   .btn-primary{
     background:var(--gold);color:#0D0B1A;
@@ -120,14 +118,14 @@
   @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(8px);}}
   @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
 
-  /* ── SECTIONS SHARED ── */
+  /* SECTIONS SHARED */
   section{padding:5rem 5%;}
   .section-label{font-size:.78rem;font-weight:700;letter-spacing:2px;color:var(--purple);text-transform:uppercase;margin-bottom:.6rem;}
   .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,4vw,2.6rem);font-weight:900;color:var(--dark);line-height:1.15;margin-bottom:1rem;}
   .section-sub{font-size:1rem;color:var(--gray);line-height:1.7;max-width:560px;}
   .section-head{margin-bottom:3rem;}
 
-  /* ── WORK WITH ME ── */
+  /* LEARN WITH ME */
   #work{background:var(--white);}
   .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
   .work-card{
@@ -148,6 +146,7 @@
   .card-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--dark);position:relative;z-index:1;}
   .card-desc{font-size:.9rem;color:var(--gray);line-height:1.65;position:relative;z-index:1;}
   .card-price{font-weight:700;font-size:1.1rem;color:var(--purple);position:relative;z-index:1;}
+  .card-price s{font-size:.9rem;font-weight:400;opacity:.6;margin-left:.3rem;}
   .card-btn{
     display:inline-block;background:var(--purple);color:#fff;
     padding:.65rem 1.5rem;border-radius:40px;font-size:.85rem;font-weight:600;
@@ -160,8 +159,10 @@
   .card-includes li::before{content:'✓';color:var(--purple);font-weight:700;flex-shrink:0;}
   .work-card.featured .card-includes li{color:rgba(255,255,255,.8);}
   .work-card.featured .card-includes li::before{color:var(--gold);}
+  /* 3-card bottom row */
+  .work-row3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1.5rem;}
 
-  /* ── COMMUNITIES ── */
+  /* COMMUNITIES */
   #community{background:var(--light);}
   .comm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;}
   .comm-card{
@@ -176,13 +177,64 @@
     width:52px;height:52px;border-radius:14px;
     background:linear-gradient(135deg,var(--purple),var(--purple-mid));
     display:flex;align-items:center;justify-content:center;
-    font-size:1.5rem;flex-shrink:0;
+    font-size:1.5rem;flex-shrink:0;overflow:hidden;
   }
+  .comm-icon img{width:100%;height:100%;object-fit:cover;border-radius:14px;}
   .comm-info{flex:1;}
   .comm-name{font-weight:700;font-size:.95rem;color:var(--dark);margin-bottom:.2rem;}
   .comm-tag{font-size:.78rem;color:var(--gray);font-weight:500;}
   .comm-arrow{color:var(--purple);font-size:1.2rem;opacity:.5;transition:opacity .2s,transform .2s;}
   .comm-card:hover .comm-arrow{opacity:1;transform:translateX(3px);}
+
+  /* Special Mallu Articles card */
+  .mallu-card{
+    background:var(--white);border-radius:var(--radius);
+    border:2px solid var(--purple-pale);
+    overflow:hidden;margin-top:1.2rem;
+    transition:transform .25s,box-shadow .25s;
+    text-decoration:none;color:inherit;display:block;
+  }
+  .mallu-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  .mallu-header{
+    background:linear-gradient(135deg,#0D0B1A,#1A1040);
+    padding:1.8rem 2rem;display:flex;align-items:center;gap:1.5rem;
+  }
+  .mallu-logo{
+    width:70px;height:70px;border-radius:16px;
+    overflow:hidden;flex-shrink:0;
+    border:2px solid rgba(212,175,55,.4);
+    box-shadow:0 4px 20px rgba(74,44,219,.4);
+  }
+  .mallu-logo img{width:100%;height:100%;object-fit:cover;}
+  .mallu-logo-fallback{
+    width:70px;height:70px;border-radius:16px;flex-shrink:0;
+    background:linear-gradient(135deg,var(--purple),var(--gold));
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.6rem;border:2px solid rgba(212,175,55,.4);
+    box-shadow:0 4px 20px rgba(74,44,219,.4);
+  }
+  .mallu-title-block{}
+  .mallu-name{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:900;color:#fff;margin-bottom:.2rem;}
+  .mallu-sub{font-size:.78rem;color:rgba(212,175,55,.8);font-weight:600;letter-spacing:.5px;}
+  .mallu-body{padding:1.5rem 2rem;}
+  .mallu-desc{font-size:.9rem;color:var(--gray);line-height:1.7;margin-bottom:1rem;}
+  .mallu-note{
+    background:#FFF9E6;border:1px solid rgba(212,175,55,.3);
+    border-radius:8px;padding:.8rem 1rem;
+    font-size:.8rem;color:#8B6914;line-height:1.5;margin-bottom:1.2rem;
+  }
+  .mallu-note::before{content:'⚠️ ';}
+  .mallu-join{
+    display:inline-flex;align-items:center;gap:.5rem;
+    background:linear-gradient(135deg,var(--purple),var(--purple-mid));
+    color:#fff;padding:.7rem 1.5rem;border-radius:40px;
+    font-size:.85rem;font-weight:700;text-decoration:none;
+    transition:transform .2s,box-shadow .2s;
+    box-shadow:0 4px 20px rgba(74,44,219,.25);
+  }
+  .mallu-join:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(74,44,219,.4);}
+  .mallu-arrow{font-size:1rem;}
+
   .whatsapp-note{
     margin-top:1.5rem;background:linear-gradient(135deg,#128C7E,#25D366);
     border-radius:var(--radius);padding:1.2rem 1.8rem;
@@ -192,7 +244,7 @@
   .whatsapp-note p{font-size:.9rem;line-height:1.5;opacity:.95;}
   .whatsapp-note strong{display:block;font-size:1rem;margin-bottom:.2rem;}
 
-  /* ── SHOP ── */
+  /* SHOP */
   #shop{background:var(--white);}
   .shop-tabs{display:flex;gap:.5rem;margin-bottom:2rem;flex-wrap:wrap;}
   .tab-btn{
@@ -222,7 +274,7 @@
   .shop-buy{background:var(--purple-pale);color:var(--purple);border:none;padding:.45rem .9rem;border-radius:20px;font-size:.8rem;font-weight:700;cursor:pointer;transition:.2s;text-decoration:none;display:inline-block;}
   .shop-buy:hover{background:var(--purple);color:#fff;}
 
-  /* ── LIVE WORKSHOP ── */
+  /* LIVE WORKSHOP */
   #workshop{background:var(--light);}
   .workshop-card{
     background:linear-gradient(135deg,#0D0B1A,#1A1040);
@@ -263,7 +315,7 @@
   .reg-btn:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(212,175,55,.5);}
   .seats-left{text-align:center;font-size:.75rem;color:rgba(255,255,255,.4);}
 
-  /* ── FOOTER ── */
+  /* FOOTER */
   footer{
     background:#0D0B1A;color:rgba(255,255,255,.55);
     padding:2.5rem 5%;text-align:center;
@@ -274,14 +326,19 @@
   footer .f-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.82rem;transition:color .2s;}
   footer .f-links a:hover{color:var(--gold);}
 
-  /* ── RESPONSIVE ── */
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    .work-row3{grid-template-columns:1fr 1fr;}
+  }
   @media(max-width:768px){
     .nav-links,.nav-cta{display:none;}
     .hamburger{display:flex;}
     .work-grid{grid-template-columns:1fr;}
+    .work-row3{grid-template-columns:1fr;}
     .workshop-card{grid-template-columns:1fr;}
     .workshop-right{align-items:stretch;}
     section{padding:3.5rem 5%;}
+    .mallu-header{flex-direction:column;text-align:center;}
   }
   @media(max-width:520px){
     .comm-grid{grid-template-columns:1fr;}
@@ -290,11 +347,11 @@
 </head>
 <body>
 
-<!-- ── NAV ── -->
+<!-- NAV -->
 <nav id="navbar">
   <div class="nav-logo">Irshal<span>.</span></div>
   <ul class="nav-links">
-    <li><a href="#work">Work With Me</a></li>
+    <li><a href="#work">Learn With Me</a></li>
     <li><a href="#community">Community</a></li>
     <li><a href="#shop">Shop</a></li>
     <li><a href="#workshop">Live Workshop</a></li>
@@ -305,14 +362,14 @@
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#work" onclick="closeMenu()">Work With Me</a>
+  <a href="#work" onclick="closeMenu()">Learn With Me</a>
   <a href="#community" onclick="closeMenu()">Community</a>
   <a href="#shop" onclick="closeMenu()">Shop</a>
   <a href="#workshop" onclick="closeMenu()">Live Workshop</a>
   <a href="#workshop" onclick="closeMenu()" style="color:var(--purple);font-weight:700;">Register Now →</a>
 </div>
 
-<!-- ── HERO ── -->
+<!-- HERO -->
 <section id="hero">
   <div class="hero-bg-orb orb1"></div>
   <div class="hero-bg-orb orb2"></div>
@@ -320,13 +377,12 @@
   <div class="hero-inner">
     <div class="hero-badge">CA Finalist · Founder · Mentor · Content Creator</div>
 
-    <!-- PHOTO — Replace src below with your own image URL -->
     <div class="hero-photo" id="heroPhoto">
-      <div class="photo-hint">📸<br/>Add your<br/>photo here</div>
+      <img src="https://i.ibb.co/s9QdVFN7" alt="Muhammed Irshal" onerror="this.parentElement.innerHTML='👤'"/>
     </div>
 
     <h1 class="hero-name">Muhammed <em>Irshal</em></h1>
-    <p class="hero-tagline">Helping CA students pass smarter, build careers, and grow online.</p>
+    <p class="hero-tagline">Helping students and professionals learn smarter, build successful careers, and grow their presence online.</p>
     <div class="hero-roles">
       <span class="role-pill">CA Finalist</span>
       <span class="role-pill">Founder</span>
@@ -345,85 +401,105 @@
   </div>
 </section>
 
-<!-- ── WORK WITH ME ── -->
+<!-- LEARN WITH ME -->
 <section id="work">
   <div class="section-head">
-    <div class="section-label">Work With Me</div>
+    <div class="section-label">Learn With Me</div>
     <h2 class="section-title">Let's grow together —<br/>your pace, my guidance.</h2>
-    <p class="section-sub">From personalised 1:1 mentoring to group sessions, pick what works best for where you are in your CA journey.</p>
+    <p class="section-sub">From a quick 5-minute clarity call to in-depth 30-minute sessions — pick what fits your stage and budget.</p>
   </div>
+
+  <!-- Top row: Featured card + Quick call -->
   <div class="work-grid">
 
     <div class="work-card featured">
       <div class="card-icon">🎯</div>
       <div class="card-title">1:1 Strategy Call</div>
-      <p class="card-desc">A focused 45-minute session tailored to your exact situation — exam strategy, articleship, career decisions, or content creation.</p>
+      <p class="card-desc">A quick 5-minute strategy call focused on your immediate questions — exams, career clarity, articleship, productivity, or content growth.</p>
       <ul class="card-includes">
-        <li>Personalised study or career roadmap</li>
-        <li>Exam strategy & time management</li>
-        <li>Q&A — you ask, I answer</li>
-        <li>Follow-up notes sent after call</li>
+        <li>Quick personalised guidance</li>
+        <li>Clear action steps for your situation</li>
+        <li>Ask your doubts directly</li>
+        <li>Key takeaways shared after the call</li>
       </ul>
-      <div class="card-price">₹999 · 45 mins</div>
-      <!-- Replace href with your Calendly link -->
-      <a href="https://calendly.com/irshal-official" class="card-btn" target="_blank">Book Your Slot →</a>
+      <div class="card-price">₹29 <s>₹99</s> · 5 mins</div>
+      <a href="https://topmate.io/muhammedirshal/2134275?utm_source=public_profile&utm_campaign=muhammedirshal" class="card-btn" target="_blank">Book Your Slot →</a>
     </div>
 
     <div style="display:flex;flex-direction:column;gap:1.2rem;">
       <div class="work-card">
         <div class="card-icon">📝</div>
         <div class="card-title">Exam Strategy Session</div>
-        <p class="card-desc">30-minute focused session on your upcoming attempt — which subjects to prioritise, how to plan your last 30 days, and revision techniques.</p>
-        <div class="card-price">₹599 · 30 mins</div>
-        <a href="https://calendly.com/irshal-official" class="card-btn" target="_blank">Book Now →</a>
+        <p class="card-desc">Focused 30-minute session on your upcoming attempt — which subjects to prioritise, how to plan your last 30 days, and revision techniques.</p>
+        <div class="card-price">₹499 <s>₹999</s> · 30 mins</div>
+        <a href="https://topmate.io/muhammedirshal/2115605?utm_source=public_profile&utm_campaign=muhammedirshal" class="card-btn" target="_blank">Book Now →</a>
       </div>
-      <div class="work-card">
-        <div class="card-icon">💼</div>
-        <div class="card-title">Articleship Guidance</div>
-        <p class="card-desc">Stuck choosing a firm? Struggling with office life and studies? Get clarity on your articleship path in one focused call.</p>
-        <div class="card-price">₹699 · 30 mins</div>
-        <a href="https://calendly.com/irshal-official" class="card-btn" target="_blank">Book Now →</a>
-      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom row: 2 more cards -->
+  <div class="work-row3" style="grid-template-columns:1fr 1fr;">
+
+    <div class="work-card">
+      <div class="card-icon">🎓</div>
+      <div class="card-title">Career Guidance — CA / CMA / ACCA</div>
+      <p class="card-desc">30-minute career guidance session for CA, CMA, and ACCA aspirants to help you choose the right path and plan your career confidently.</p>
+      <ul class="card-includes">
+        <li>Course & career clarity</li>
+        <li>Opportunities and scope</li>
+        <li>Personalised guidance</li>
+        <li>Doubt-solving session</li>
+      </ul>
+      <div class="card-price">₹499 <s>₹999</s> · 30 mins</div>
+      <a href="https://topmate.io/muhammedirshal/2115605?utm_source=public_profile&utm_campaign=muhammedirshal" class="card-btn" target="_blank">Book Now →</a>
+    </div>
+
+    <div class="work-card">
+      <div class="card-icon">💼</div>
+      <div class="card-title">Articleship Guidance</div>
+      <p class="card-desc">Stuck choosing a firm? Struggling with office life and studies? Get clarity on your articleship path in one focused 30-minute call.</p>
+      <div class="card-price">₹499 <s>₹999</s> · 30 mins</div>
+      <a href="https://topmate.io/muhammedirshal/2115551?utm_source=public_profile&utm_campaign=muhammedirshal" class="card-btn" target="_blank">Book Now →</a>
     </div>
 
   </div>
 </section>
 
-<!-- ── COMMUNITY ── -->
+<!-- COMMUNITY -->
 <section id="community">
   <div class="section-head">
     <div class="section-label">Join the Community</div>
-    <h2 class="section-title">5 communities. One goal —<br/>to clear CA together.</h2>
+    <h2 class="section-title">4 communities. One goal —<br/>to clear CA together.</h2>
     <p class="section-sub">Join the WhatsApp community that matches your stage. Get free resources, updates, peer support, and direct access to guidance.</p>
   </div>
 
   <div class="comm-grid">
-    <!-- Replace each href with your actual WhatsApp invite link -->
-    <a class="comm-card" href="https://chat.whatsapp.com/YOUR_FOUNDATION_LINK" target="_blank">
+    <a class="comm-card" href="https://wa.me/message/A6D35UO3ZV7ID1" target="_blank">
       <div class="comm-icon">🌱</div>
       <div class="comm-info">
         <div class="comm-name">CA Foundation Connect</div>
-        <div class="comm-tag">For Foundation students · Free to join</div>
+        <div class="comm-tag">For Kerala-based Foundation students · Free to join</div>
       </div>
       <div class="comm-arrow">→</div>
     </a>
-    <a class="comm-card" href="https://chat.whatsapp.com/YOUR_INTER_LINK" target="_blank">
+    <a class="comm-card" href="https://wa.me/message/A6D35UO3ZV7ID1" target="_blank">
       <div class="comm-icon">📘</div>
       <div class="comm-info">
         <div class="comm-name">CA Intermediate Connect</div>
-        <div class="comm-tag">For Inter students · Free to join</div>
+        <div class="comm-tag">For Kerala-based Intermediate students · Free to join</div>
       </div>
       <div class="comm-arrow">→</div>
     </a>
-    <a class="comm-card" href="https://chat.whatsapp.com/YOUR_ARTICLESHIP_LINK" target="_blank">
+    <a class="comm-card" href="https://wa.me/message/A6D35UO3ZV7ID1" target="_blank">
       <div class="comm-icon">🏢</div>
       <div class="comm-info">
         <div class="comm-name">CA/CMA Articleship Connect</div>
-        <div class="comm-tag">For articleship students · Free to join</div>
+        <div class="comm-tag">For All India CA/CMA Finalist students · Free to join</div>
       </div>
       <div class="comm-arrow">→</div>
     </a>
-    <a class="comm-card" href="https://chat.whatsapp.com/YOUR_FINAL_LINK" target="_blank">
+    <a class="comm-card" href="https://wa.me/message/A6D35UO3ZV7ID1" target="_blank">
       <div class="comm-icon">🏆</div>
       <div class="comm-info">
         <div class="comm-name">CA Final Connect</div>
@@ -431,23 +507,34 @@
       </div>
       <div class="comm-arrow">→</div>
     </a>
-    <a class="comm-card" href="https://chat.whatsapp.com/YOUR_GENERAL_LINK" target="_blank">
-      <div class="comm-icon">💡</div>
-      <div class="comm-info">
-        <div class="comm-name">CA Aspirants Hub</div>
-        <div class="comm-tag">General community · Free to join</div>
-      </div>
-      <div class="comm-arrow">→</div>
-    </a>
   </div>
+
+  <!-- Mallu Articles Bengaluru special card -->
+  <a class="mallu-card" href="https://wa.me/message/A6D35UO3ZV7ID1" target="_blank">
+    <div class="mallu-header">
+      <div class="mallu-logo">
+        <img src="https://i.ibb.co/FvDrK67" alt="Mallu Articles Bengaluru"
+             onerror="this.parentElement.outerHTML='<div class=&quot;mallu-logo-fallback&quot;>🌴</div>'"/>
+      </div>
+      <div class="mallu-title-block">
+        <div class="mallu-name">Mallu Articles Bengaluru</div>
+        <div class="mallu-sub">Kerala × Bengaluru · CA/CMA Community</div>
+      </div>
+    </div>
+    <div class="mallu-body">
+      <p class="mallu-desc">Connect, grow, and support fellow students from Kerala pursuing articleship in Bengaluru. Get vacancy updates, referrals, networking opportunities, event updates, guidance, and peer support — all in one place.</p>
+      <div class="mallu-note">Please leave the community if you join articleship outside Bengaluru.</div>
+      <span class="mallu-join">Join Mallu Articles Bengaluru <span class="mallu-arrow">→</span></span>
+    </div>
+  </a>
 
   <div class="whatsapp-note">
     <span>💬</span>
-    <p><strong>Why join the community?</strong>Free daily tips, study material drops, exam alerts, and direct access to me — all inside WhatsApp. No spam, only value.</p>
+    <p><strong>Why join the community?</strong>Connect with Kerala-based CA/CMA students in Bengaluru for articleship updates, networking, events, and peer support — all in one community.</p>
   </div>
 </section>
 
-<!-- ── SHOP ── -->
+<!-- SHOP -->
 <section id="shop">
   <div class="section-head">
     <div class="section-label">Shop</div>
@@ -470,7 +557,6 @@
         <div class="shop-meta">PDF · 42 pages · Instant download</div>
         <div class="shop-footer">
           <div class="shop-price">₹199 <s>₹399</s></div>
-          <!-- Replace href with your Instamojo/Gumroad link -->
           <a href="https://www.instamojo.com/YOUR_LINK" class="shop-buy" target="_blank">Buy Now</a>
         </div>
       </div>
@@ -507,7 +593,6 @@
         <div class="shop-meta">Video · 3 hrs · Lifetime access</div>
         <div class="shop-footer">
           <div class="shop-price">₹499 <s>₹999</s></div>
-          <!-- Replace href with your Razorpay/Instamojo link -->
           <a href="https://www.instamojo.com/YOUR_LINK" class="shop-buy" target="_blank">Buy Now</a>
         </div>
       </div>
@@ -540,7 +625,7 @@
   </div>
 </section>
 
-<!-- ── LIVE WORKSHOP ── -->
+<!-- LIVE WORKSHOP -->
 <section id="workshop">
   <div class="section-head">
     <div class="section-label">Live Workshop</div>
@@ -551,11 +636,9 @@
   <div class="workshop-card">
     <div style="position:relative;z-index:2;">
       <div class="live-badge"><span class="live-dot"></span> UPCOMING LIVE</div>
-      <!-- Edit workshop title below -->
       <h3 class="workshop-title">Build Your CA Career & Online Presence — Live Workshop</h3>
       <p class="workshop-desc">A hands-on 2-hour live session covering study strategy, content creation for CA students, personal branding, and how to stand out in your articleship and beyond.</p>
       <div class="workshop-details">
-        <!-- Edit date, time, platform below -->
         <div class="detail-pill">📅 15 June 2025</div>
         <div class="detail-pill">⏰ 7:00 PM IST</div>
         <div class="detail-pill">💻 Google Meet (Online)</div>
@@ -569,9 +652,7 @@
         <li>Recording access for 30 days after the session</li>
       </ul>
       <div style="display:flex;gap:1rem;flex-wrap:wrap;">
-        <!-- Replace href with your Razorpay payment link -->
         <a href="https://razorpay.com/payment-link/YOUR_LINK" class="btn-primary" target="_blank">Pay & Register Now</a>
-        <!-- Replace href with your Google Form link -->
         <a href="https://forms.google.com/YOUR_FORM" class="btn-outline" target="_blank">Fill Registration Form</a>
       </div>
     </div>
@@ -588,37 +669,31 @@
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
+<!-- FOOTER -->
 <footer>
   <div class="f-name">Muhammed Irshal</div>
   <div style="margin-bottom:.5rem;font-size:.8rem;">CA Finalist · Founder · Mentor · Content Creator</div>
   <div class="f-links">
-    <a href="#work">Work With Me</a>
+    <a href="#work">Learn With Me</a>
     <a href="#community">Community</a>
     <a href="#shop">Shop</a>
     <a href="#workshop">Live Workshop</a>
-    <!-- Add your social links below -->
-    <a href="https://instagram.com/YOUR_HANDLE" target="_blank">Instagram</a>
+    <a href="https://instagram.com/ca.kkaaran" target="_blank">Instagram</a>
     <a href="https://youtube.com/YOUR_CHANNEL" target="_blank">YouTube</a>
   </div>
   <div style="font-size:.78rem;opacity:.5;">© 2025 Muhammed Irshal. All rights reserved.</div>
 </footer>
 
 <script>
-  // Nav scroll shadow
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
   });
-
-  // Mobile menu
   function toggleMenu() {
     document.getElementById('mobileMenu').classList.toggle('open');
   }
   function closeMenu() {
     document.getElementById('mobileMenu').classList.remove('open');
   }
-
-  // Shop filter
   function filterShop(cat, btn) {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -626,8 +701,6 @@
       card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'block' : 'none';
     });
   }
-
-  // Scroll reveal
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -636,8 +709,7 @@
       }
     });
   }, { threshold: 0.1 });
-
-  document.querySelectorAll('.work-card, .comm-card, .shop-card, .workshop-card').forEach(el => {
+  document.querySelectorAll('.work-card, .comm-card, .mallu-card, .shop-card, .workshop-card').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity .5s ease, transform .5s ease';

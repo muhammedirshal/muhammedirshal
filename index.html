@@ -315,6 +315,69 @@
   .reg-btn:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(212,175,55,.5);}
   .seats-left{text-align:center;font-size:.75rem;color:rgba(255,255,255,.4);}
 
+  /* UPCOMING ANIMATED RIBBON */
+  .upcoming-ribbon {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(90deg, rgba(212,175,55,.95), rgba(255,210,80,.95), rgba(212,175,55,.95));
+    background-size: 200% 100%;
+    color: #0D0B1A;
+    font-size: .65rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: .35rem 0;
+    text-align: center;
+    animation: ribbonShimmer 2s linear infinite;
+    overflow: hidden;
+  }
+  .upcoming-ribbon::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.35) 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: ribbonGlow 1.5s linear infinite;
+  }
+  @keyframes ribbonShimmer {
+    0%   { background-position: 0% 0; }
+    100% { background-position: 200% 0; }
+  }
+  @keyframes ribbonGlow {
+    0%   { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  /* WORKSHOP UPCOMING BANNER */
+  .workshop-upcoming-banner {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    z-index: 10;
+    background: linear-gradient(90deg, rgba(212,175,55,.9), rgba(255,215,80,.95), rgba(212,175,55,.9));
+    color: #0D0B1A;
+    font-size: .7rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    padding: .4rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .workshop-upcoming-banner span {
+    display: inline-block;
+    animation: marquee 14s linear infinite;
+    padding-left: 100%;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* POPUP ANIMATION */
+  @keyframes popIn {
+    from { opacity: 0; transform: scale(.85); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
   /* FOOTER */
   footer{
     background:#0D0B1A;color:rgba(255,255,255,.55);
@@ -378,7 +441,7 @@
     <div class="hero-badge">CA Finalist · Founder · Mentor · Content Creator</div>
 
     <div class="hero-photo" id="heroPhoto">
-      <img src="https://i.ibb.co/s9QdVFN7" alt="Muhammed Irshal" onerror="this.parentElement.innerHTML='👤'"/>
+      <img src="https://i.ibb.co/h1YH5wBv/Linkedin-d-P.jpg" alt="Muhammed Irshal" onerror="this.parentElement.innerHTML='👤'"/>
     </div>
 
     <h1 class="hero-name">Muhammed <em>Irshal</em></h1>
@@ -503,7 +566,7 @@
       <div class="comm-icon">🏆</div>
       <div class="comm-info">
         <div class="comm-name">CA Final Connect</div>
-        <div class="comm-tag">For Final students · Free to join</div>
+        <div class="comm-tag">For All India CA Final students · Free to join</div>
       </div>
       <div class="comm-arrow">→</div>
     </a>
@@ -513,7 +576,7 @@
   <a class="mallu-card" href="https://wa.me/message/A6D35UO3ZV7ID1" target="_blank">
     <div class="mallu-header">
       <div class="mallu-logo">
-        <img src="https://i.ibb.co/FvDrK67" alt="Mallu Articles Bengaluru"
+        <img src="https://i.ibb.co/TBvbyJJ0/MAB-logo.jpg" alt="Mallu Articles Bengaluru"
              onerror="this.parentElement.outerHTML='<div class=&quot;mallu-logo-fallback&quot;>🌴</div>'"/>
       </div>
       <div class="mallu-title-block">
@@ -550,74 +613,113 @@
 
   <div class="shop-grid" id="shopGrid">
 
+    <!-- DIGITAL PRODUCTS -->
     <div class="shop-card" data-cat="digital">
-      <div class="shop-thumb">📄<div class="shop-badge">Bestseller</div></div>
-      <div class="shop-body">
-        <div class="shop-title">CA Final SFM Formula Sheet</div>
-        <div class="shop-meta">PDF · 42 pages · Instant download</div>
-        <div class="shop-footer">
-          <div class="shop-price">₹199 <s>₹399</s></div>
-          <a href="https://www.instamojo.com/YOUR_LINK" class="shop-buy" target="_blank">Buy Now</a>
-        </div>
+      <div class="shop-thumb" style="background:none;padding:0;height:160px;position:relative;">
+        <img src="https://i.ibb.co/62CtCdV/Chat-GPT-Image-Jun-4-2026-10-14-23-PM.png" alt="Study Tracker" style="width:100%;height:100%;object-fit:cover;"/>
+        <div class="shop-badge">Bestseller</div>
       </div>
-    </div>
-
-    <div class="shop-card" data-cat="digital">
-      <div class="shop-thumb">📋</div>
       <div class="shop-body">
-        <div class="shop-title">Articleship Tracker Template</div>
-        <div class="shop-meta">PDF + Excel · Instant download</div>
+        <div class="shop-title">Study Tracker</div>
+        <div class="shop-meta">Stay consistent with a smart study progress tracker</div>
         <div class="shop-footer">
-          <div class="shop-price">₹149</div>
-          <a href="https://www.instamojo.com/YOUR_LINK" class="shop-buy" target="_blank">Buy Now</a>
+          <div class="shop-price">₹29 <s>₹99</s></div>
+          <a href="https://topmate.io/muhammedirshal/2115644?utm_source=public_profile&utm_campaign=muhammedirshal" class="shop-buy" target="_blank">Buy Now</a>
         </div>
       </div>
     </div>
 
     <div class="shop-card" data-cat="digital">
-      <div class="shop-thumb">📊</div>
+      <div class="shop-thumb" style="background:linear-gradient(135deg,var(--purple),var(--purple-mid));position:relative;overflow:hidden;">
+        <span style="font-size:2.5rem;">📚</span>
+        <div class="upcoming-ribbon">UPCOMING</div>
+      </div>
       <div class="shop-body">
-        <div class="shop-title">CA Inter Study Planner</div>
-        <div class="shop-meta">PDF · 30 pages · Instant download</div>
+        <div class="shop-title">CA Final Lectures Tracker</div>
+        <div class="shop-meta">Your ultimate companion to track every lecture, every subject, every win — until you crack CA Final.</div>
         <div class="shop-footer">
-          <div class="shop-price">₹99</div>
-          <a href="https://www.instamojo.com/YOUR_LINK" class="shop-buy" target="_blank">Buy Now</a>
+          <div class="shop-price">₹149 <s>₹249</s></div>
+          <span class="shop-buy" style="opacity:.6;cursor:not-allowed;">Upcoming</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="shop-card" data-cat="digital">
+      <div class="shop-thumb" style="background:linear-gradient(135deg,var(--dark),#2A1870);position:relative;overflow:hidden;">
+        <span style="font-size:2.5rem;">🏆</span>
+        <div class="upcoming-ribbon">UPCOMING</div>
+      </div>
+      <div class="shop-body">
+        <div class="shop-title">CA Inter Success Roadmap</div>
+        <div class="shop-meta">How I Cleared CA Intermediate Both Groups in My First Attempt – A Complete Step-by-Step Roadmap</div>
+        <div class="shop-footer">
+          <div class="shop-price">₹249 <s>₹499</s></div>
+          <span class="shop-buy" style="opacity:.6;cursor:not-allowed;">Upcoming</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RECORDED WORKSHOPS -->
+    <div class="shop-card" data-cat="recorded">
+      <div class="shop-thumb" style="background:linear-gradient(135deg,#1a0a3e,#3b1fa8);position:relative;overflow:hidden;flex-direction:column;gap:.4rem;">
+        <span style="font-size:2rem;">🎓</span>
+        <div style="font-size:.7rem;color:rgba(255,255,255,.6);text-align:center;padding:0 .5rem;">Who Can Choose CA?</div>
+        <div class="upcoming-ribbon">UPCOMING</div>
+      </div>
+      <div class="shop-body">
+        <div class="shop-title">Is CA the Right Career for You?</div>
+        <div class="shop-meta">Everything Students Need to Know Before Choosing Chartered Accountancy</div>
+        <div class="shop-footer">
+          <div class="shop-price" style="font-size:.85rem;color:var(--gray);">Coming Soon</div>
+          <span class="shop-buy" style="opacity:.6;cursor:not-allowed;">Upcoming</span>
         </div>
       </div>
     </div>
 
     <div class="shop-card" data-cat="recorded">
-      <div class="shop-thumb">🎬<div class="shop-badge">New</div></div>
+      <div class="shop-thumb" style="background:linear-gradient(135deg,#0a2e1a,#1a7a3b);position:relative;overflow:hidden;flex-direction:column;gap:.4rem;">
+        <span style="font-size:2rem;">⚖️</span>
+        <div style="font-size:.7rem;color:rgba(255,255,255,.6);text-align:center;padding:0 .5rem;">CA vs CMA vs ACCA</div>
+        <div class="upcoming-ribbon">UPCOMING</div>
+      </div>
       <div class="shop-body">
-        <div class="shop-title">SFM Concepts Masterclass</div>
-        <div class="shop-meta">Video · 3 hrs · Lifetime access</div>
+        <div class="shop-title">CA vs CMA vs ACCA: Which Course Should You Choose?</div>
+        <div class="shop-meta">Complete Comparison of Scope, Difficulty, Cost, Salary & Career Opportunities</div>
         <div class="shop-footer">
-          <div class="shop-price">₹499 <s>₹999</s></div>
-          <a href="https://www.instamojo.com/YOUR_LINK" class="shop-buy" target="_blank">Buy Now</a>
+          <div class="shop-price" style="font-size:.85rem;color:var(--gray);">Coming Soon</div>
+          <span class="shop-buy" style="opacity:.6;cursor:not-allowed;">Upcoming</span>
         </div>
       </div>
     </div>
 
     <div class="shop-card" data-cat="recorded">
-      <div class="shop-thumb">🎥</div>
+      <div class="shop-thumb" style="background:linear-gradient(135deg,#2e1a0a,#a85c1a);position:relative;overflow:hidden;flex-direction:column;gap:.4rem;">
+        <span style="font-size:2rem;">⚠️</span>
+        <div style="font-size:.7rem;color:rgba(255,255,255,.6);text-align:center;padding:0 .5rem;">Things to Avoid</div>
+        <div class="upcoming-ribbon">UPCOMING</div>
+      </div>
       <div class="shop-body">
-        <div class="shop-title">How to Crack CA Final in First Attempt</div>
-        <div class="shop-meta">Video · 90 mins · Lifetime access</div>
+        <div class="shop-title">5 Mistakes That Can Delay Your CA/CMA Journey</div>
+        <div class="shop-meta">The Common Errors Students Make After Enrollment and How to Avoid Them</div>
         <div class="shop-footer">
-          <div class="shop-price">₹399</div>
-          <a href="https://www.instamojo.com/YOUR_LINK" class="shop-buy" target="_blank">Buy Now</a>
+          <div class="shop-price" style="font-size:.85rem;color:var(--gray);">Coming Soon</div>
+          <span class="shop-buy" style="opacity:.6;cursor:not-allowed;">Upcoming</span>
         </div>
       </div>
     </div>
 
     <div class="shop-card" data-cat="recorded">
-      <div class="shop-thumb">📹</div>
+      <div class="shop-thumb" style="background:linear-gradient(135deg,#0a1a2e,#1a4a7a);position:relative;overflow:hidden;flex-direction:column;gap:.4rem;">
+        <span style="font-size:2rem;">🚀</span>
+        <div style="font-size:.7rem;color:rgba(255,255,255,.6);text-align:center;padding:0 .5rem;">Personal Branding</div>
+        <div class="upcoming-ribbon">UPCOMING</div>
+      </div>
       <div class="shop-body">
-        <div class="shop-title">Content Creation for CA Students</div>
-        <div class="shop-meta">Video · 2 hrs · Lifetime access</div>
+        <div class="shop-title">Build Your Personal Brand Before You Need It</div>
+        <div class="shop-meta">How to Stand Out, Create Opportunities, and Build Credibility Online</div>
         <div class="shop-footer">
-          <div class="shop-price">₹599</div>
-          <a href="https://www.instamojo.com/YOUR_LINK" class="shop-buy" target="_blank">Buy Now</a>
+          <div class="shop-price" style="font-size:.85rem;color:var(--gray);">Coming Soon</div>
+          <span class="shop-buy" style="opacity:.6;cursor:not-allowed;">Upcoming</span>
         </div>
       </div>
     </div>
@@ -633,16 +735,21 @@
     <p class="section-sub">Interactive sessions where you can ask questions, get real-time guidance, and learn with a community of CA aspirants.</p>
   </div>
 
-  <div class="workshop-card">
-    <div style="position:relative;z-index:2;">
+  <div class="workshop-card" style="position:relative;overflow:hidden;">
+    <!-- Animated UPCOMING banner across the card -->
+    <div class="workshop-upcoming-banner">
+      <span>⚡ COMING SOON &nbsp;&nbsp;·&nbsp;&nbsp; ⚡ COMING SOON &nbsp;&nbsp;·&nbsp;&nbsp; ⚡ COMING SOON &nbsp;&nbsp;·&nbsp;&nbsp; ⚡ COMING SOON &nbsp;&nbsp;·&nbsp;&nbsp; ⚡ COMING SOON &nbsp;&nbsp;·&nbsp;&nbsp; ⚡ COMING SOON &nbsp;&nbsp;·&nbsp;&nbsp;</span>
+    </div>
+
+    <div style="position:relative;z-index:2;padding-top:1.5rem;">
       <div class="live-badge"><span class="live-dot"></span> UPCOMING LIVE</div>
       <h3 class="workshop-title">Build Your CA Career & Online Presence — Live Workshop</h3>
-      <p class="workshop-desc">A hands-on 2-hour live session covering study strategy, content creation for CA students, personal branding, and how to stand out in your articleship and beyond.</p>
+      <p class="workshop-desc">A hands-on live session covering study strategy, content creation for CA students, personal branding, and how to stand out in your articleship and beyond.</p>
       <div class="workshop-details">
-        <div class="detail-pill">📅 15 June 2025</div>
-        <div class="detail-pill">⏰ 7:00 PM IST</div>
+        <div class="detail-pill">📅 Date TBA</div>
+        <div class="detail-pill">⏰ Time TBA</div>
         <div class="detail-pill">💻 Google Meet (Online)</div>
-        <div class="detail-pill">⏱ 2 Hours</div>
+        <div class="detail-pill">⏱ 1–2 Hours</div>
       </div>
       <ul class="workshop-includes">
         <li>CA exam strategy & time management framework</li>
@@ -652,8 +759,8 @@
         <li>Recording access for 30 days after the session</li>
       </ul>
       <div style="display:flex;gap:1rem;flex-wrap:wrap;">
-        <a href="https://razorpay.com/payment-link/YOUR_LINK" class="btn-primary" target="_blank">Pay & Register Now</a>
-        <a href="https://forms.google.com/YOUR_FORM" class="btn-outline" target="_blank">Fill Registration Form</a>
+        <button class="btn-primary" onclick="showUpcomingPopup()" style="cursor:pointer;border:none;">Pay &amp; Register Now</button>
+        <button class="btn-outline" onclick="showUpcomingPopup()" style="cursor:pointer;border:1.5px solid rgba(255,255,255,.3);">Fill Registration Form</button>
       </div>
     </div>
 
@@ -663,11 +770,25 @@
         <div class="price-current">₹699</div>
         <div class="price-label">Early Bird Price</div>
       </div>
-      <a href="https://razorpay.com/payment-link/YOUR_LINK" class="reg-btn" target="_blank">Secure Your Seat →</a>
+      <button onclick="showUpcomingPopup()" class="reg-btn" style="cursor:pointer;border:none;">Secure Your Seat →</button>
       <div class="seats-left">⚡ Limited seats available</div>
     </div>
   </div>
 </section>
+
+<!-- UPCOMING POPUP MODAL -->
+<div id="upcomingModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(13,11,26,.75);backdrop-filter:blur(8px);align-items:center;justify-content:center;">
+  <div style="background:#fff;border-radius:20px;padding:2.5rem 2rem;max-width:380px;width:90%;text-align:center;position:relative;box-shadow:0 30px 80px rgba(74,44,219,.25);animation:popIn .35s cubic-bezier(.34,1.56,.64,1) both;">
+    <div style="font-size:3rem;margin-bottom:1rem;">🚀</div>
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:#0D0B1A;margin-bottom:.5rem;">Coming Soon!</h3>
+    <p style="color:#6B6880;font-size:.95rem;line-height:1.6;margin-bottom:1.5rem;">Registration for this workshop is not open yet. Stay tuned — we'll announce the date and time soon. Follow on Instagram or LinkedIn for updates!</p>
+    <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;">
+      <a href="https://instagram.com/ca.kkaaran" target="_blank" style="background:#E1306C;color:#fff;padding:.6rem 1.4rem;border-radius:40px;font-weight:700;font-size:.85rem;text-decoration:none;">Instagram</a>
+      <a href="https://www.linkedin.com/in/muhammed-irshal-65556b310" target="_blank" style="background:#0A66C2;color:#fff;padding:.6rem 1.4rem;border-radius:40px;font-weight:700;font-size:.85rem;text-decoration:none;">LinkedIn</a>
+    </div>
+    <button onclick="closeUpcomingPopup()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#6B6880;line-height:1;">✕</button>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -679,12 +800,25 @@
     <a href="#shop">Shop</a>
     <a href="#workshop">Live Workshop</a>
     <a href="https://instagram.com/ca.kkaaran" target="_blank">Instagram</a>
-    <a href="https://youtube.com/YOUR_CHANNEL" target="_blank">YouTube</a>
+    <a href="https://www.linkedin.com/in/muhammed-irshal-65556b310" target="_blank">LinkedIn</a>
+    <a href="Team_Application_Form.html" target="_blank" rel="noopener noreferrer">Work with me</a>
   </div>
-  <div style="font-size:.78rem;opacity:.5;">© 2025 Muhammed Irshal. All rights reserved.</div>
+  <div style="font-size:.78rem;opacity:.5;">© 2026 Muhammed Irshal. All rights reserved.</div>
 </footer>
 
 <script>
+  function showUpcomingPopup() {
+    const modal = document.getElementById('upcomingModal');
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeUpcomingPopup() {
+    document.getElementById('upcomingModal').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  document.getElementById('upcomingModal').addEventListener('click', function(e) {
+    if (e.target === this) closeUpcomingPopup();
+  });
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
   });

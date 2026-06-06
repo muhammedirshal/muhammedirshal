@@ -151,7 +151,7 @@
     display:inline-block;background:var(--purple);color:#fff;
     padding:.65rem 1.5rem;border-radius:40px;font-size:.85rem;font-weight:600;
     text-decoration:none;transition:background .2s,transform .2s;
-    align-self:flex-start;position:relative;z-index:1;
+    align-self:flex-start;position:relative;z-index:1;margin-top:auto;
   }
   .card-btn:hover{background:var(--purple-mid);transform:translateY(-1px);}
   .card-includes{list-style:none;display:flex;flex-direction:column;gap:.4rem;position:relative;z-index:1;}
@@ -159,8 +159,9 @@
   .card-includes li::before{content:'✓';color:var(--purple);font-weight:700;flex-shrink:0;}
   .work-card.featured .card-includes li{color:rgba(255,255,255,.8);}
   .work-card.featured .card-includes li::before{color:var(--gold);}
-  /* 3-card bottom row */
-  .work-row3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1.5rem;}
+  /* 2-card bottom row — equal height */
+  .work-row2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem;}
+  .work-row2 .work-card{height:100%;}
 
   /* COMMUNITIES */
   #community{background:var(--light);}
@@ -185,6 +186,18 @@
   .comm-tag{font-size:.78rem;color:var(--gray);font-weight:500;}
   .comm-arrow{color:var(--purple);font-size:1.2rem;opacity:.5;transition:opacity .2s,transform .2s;}
   .comm-card:hover .comm-arrow{opacity:1;transform:translateX(3px);}
+
+  /* WHY JOIN CA CONNECT banner */
+  .why-join-banner{
+    margin-top:1.5rem;
+    background:linear-gradient(135deg,var(--purple),var(--purple-mid));
+    border-radius:var(--radius);padding:1.6rem 2rem;
+    display:flex;align-items:flex-start;gap:1.2rem;color:#fff;
+  }
+  .why-join-icon{font-size:2rem;flex-shrink:0;margin-top:.1rem;}
+  .why-join-content{}
+  .why-join-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;margin-bottom:.5rem;}
+  .why-join-desc{font-size:.9rem;line-height:1.7;opacity:.88;}
 
   /* Special Mallu Articles card */
   .mallu-card{
@@ -243,6 +256,104 @@
   .whatsapp-note span{font-size:1.8rem;}
   .whatsapp-note p{font-size:.9rem;line-height:1.5;opacity:.95;}
   .whatsapp-note strong{display:block;font-size:1rem;margin-bottom:.2rem;}
+
+  /* ── TESTIMONIAL POPUP ── */
+  .testimonial-trigger-wrap{
+    margin-top:1.8rem;display:flex;justify-content:center;
+  }
+  .testimonial-trigger{
+    display:inline-flex;align-items:center;gap:.8rem;
+    background:var(--white);border:2px solid var(--purple-pale);
+    border-radius:50px;padding:.75rem 1.6rem;
+    cursor:pointer;transition:all .25s;
+    box-shadow:0 4px 20px rgba(74,44,219,.08);
+  }
+  .testimonial-trigger:hover{border-color:var(--purple);box-shadow:var(--shadow);transform:translateY(-2px);}
+  .trig-avatars{display:flex;}
+  .trig-avatar{
+    width:34px;height:34px;border-radius:50%;
+    border:2.5px solid #fff;margin-left:-10px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1rem;overflow:hidden;flex-shrink:0;
+  }
+  .trig-avatar:first-child{margin-left:0;}
+  .trig-avatar.female{background:linear-gradient(135deg,#FF9FBD,#FF6B9D);}
+  .trig-avatar.male{background:linear-gradient(135deg,#7B9FFF,#4A6FE0);}
+  .trig-text{font-size:.88rem;font-weight:600;color:var(--dark);}
+  .trig-text span{color:var(--purple);}
+  .trig-chevron{font-size:.9rem;color:var(--purple);opacity:.7;}
+
+  /* Modal */
+  #testiModal{
+    display:none;position:fixed;inset:0;z-index:9999;
+    background:rgba(13,11,26,.78);backdrop-filter:blur(10px);
+    align-items:center;justify-content:center;padding:1rem;
+  }
+  .testi-box{
+    background:#fff;border-radius:24px;width:100%;max-width:480px;
+    overflow:hidden;box-shadow:0 30px 80px rgba(74,44,219,.22);
+    animation:popIn .38s cubic-bezier(.34,1.56,.64,1) both;
+    position:relative;
+  }
+  /* header */
+  .testi-header{
+    background:linear-gradient(135deg,var(--purple),var(--purple-mid));
+    padding:1.4rem 1.8rem;display:flex;align-items:center;justify-content:space-between;
+  }
+  .testi-header-left{display:flex;flex-direction:column;gap:.2rem;}
+  .testi-label{font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.6);}
+  .testi-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:900;color:#fff;}
+  .testi-close{background:rgba(255,255,255,.15);border:none;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:.2s;}
+  .testi-close:hover{background:rgba(255,255,255,.3);}
+
+  /* slide */
+  .testi-slide-wrap{padding:2rem 1.8rem 1.5rem;min-height:220px;display:flex;flex-direction:column;justify-content:center;}
+  .testi-person{display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem;}
+  .testi-avatar{
+    width:52px;height:52px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.5rem;flex-shrink:0;border:3px solid var(--purple-pale);
+  }
+  .testi-avatar.female{background:linear-gradient(135deg,#FFD6E8,#FF9FBD);}
+  .testi-avatar.male{background:linear-gradient(135deg,#D6E4FF,#7B9FFF);}
+  .testi-name{font-weight:700;font-size:.95rem;color:var(--dark);}
+  .testi-role{font-size:.78rem;color:var(--gray);margin-top:.1rem;}
+  .testi-quote{
+    font-size:.9rem;line-height:1.75;color:#3D3A50;
+    position:relative;padding-left:1.2rem;
+  }
+  .testi-quote::before{
+    content:'"';position:absolute;left:0;top:-.2rem;
+    font-size:2.5rem;color:var(--purple-lt);font-family:'Playfair Display',serif;
+    line-height:1;opacity:.5;
+  }
+  /* stars */
+  .testi-stars{display:flex;gap:2px;margin-bottom:.6rem;}
+  .testi-stars span{color:var(--gold);font-size:.85rem;}
+
+  /* nav footer */
+  .testi-nav{
+    padding:1rem 1.8rem 1.4rem;
+    display:flex;align-items:center;justify-content:space-between;
+    border-top:1px solid var(--purple-pale);
+  }
+  .testi-dots{display:flex;gap:.4rem;}
+  .testi-dot{width:7px;height:7px;border-radius:50%;background:var(--purple-pale);transition:.3s;cursor:pointer;}
+  .testi-dot.active{background:var(--purple);width:20px;border-radius:4px;}
+  .testi-nav-btns{display:flex;gap:.5rem;}
+  .testi-btn{
+    background:var(--purple-pale);border:none;color:var(--purple);
+    width:34px;height:34px;border-radius:50%;cursor:pointer;
+    font-size:1rem;display:flex;align-items:center;justify-content:center;
+    transition:.2s;
+  }
+  .testi-btn:hover{background:var(--purple);color:#fff;}
+
+  /* slide animation */
+  @keyframes slideInRight{from{opacity:0;transform:translateX(30px);}to{opacity:1;transform:translateX(0);}}
+  @keyframes slideInLeft{from{opacity:0;transform:translateX(-30px);}to{opacity:1;transform:translateX(0);}}
+  .slide-in-right{animation:slideInRight .3s ease both;}
+  .slide-in-left{animation:slideInLeft .3s ease both;}
 
   /* SHOP */
   #shop{background:var(--white);}
@@ -315,7 +426,7 @@
   .reg-btn:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(212,175,55,.5);}
   .seats-left{text-align:center;font-size:.75rem;color:rgba(255,255,255,.4);}
 
-  /* UPCOMING ANIMATED RIBBON */
+  /* UPCOMING RIBBON */
   .upcoming-ribbon {
     position: absolute;
     bottom: 0; left: 0; right: 0;
@@ -391,17 +502,18 @@
 
   /* RESPONSIVE */
   @media(max-width:900px){
-    .work-row3{grid-template-columns:1fr 1fr;}
+    .work-row2{grid-template-columns:1fr 1fr;}
   }
   @media(max-width:768px){
     .nav-links,.nav-cta{display:none;}
     .hamburger{display:flex;}
     .work-grid{grid-template-columns:1fr;}
-    .work-row3{grid-template-columns:1fr;}
+    .work-row2{grid-template-columns:1fr;}
     .workshop-card{grid-template-columns:1fr;}
     .workshop-right{align-items:stretch;}
     section{padding:3.5rem 5%;}
     .mallu-header{flex-direction:column;text-align:center;}
+    .why-join-banner{flex-direction:column;gap:.8rem;}
   }
   @media(max-width:520px){
     .comm-grid{grid-template-columns:1fr;}
@@ -490,7 +602,7 @@
     </div>
 
     <div style="display:flex;flex-direction:column;gap:1.2rem;">
-      <div class="work-card">
+      <div class="work-card" style="flex:1;">
         <div class="card-icon">📝</div>
         <div class="card-title">Exam Strategy Session</div>
         <p class="card-desc">Focused 30-minute session on your upcoming attempt — which subjects to prioritise, how to plan your last 30 days, and revision techniques.</p>
@@ -501,18 +613,17 @@
 
   </div>
 
-  <!-- Bottom row: 2 more cards -->
-  <div class="work-row3" style="grid-template-columns:1fr 1fr;">
+  <!-- Bottom row: 2 balanced cards -->
+  <div class="work-row2">
 
     <div class="work-card">
       <div class="card-icon">🎓</div>
       <div class="card-title">Career Guidance — CA / CMA / ACCA</div>
-      <p class="card-desc">30-minute career guidance session for CA, CMA, and ACCA aspirants to help you choose the right path and plan your career confidently.</p>
+      <p class="card-desc">30-min career guidance session for CA, CMA, and ACCA aspirants — choose the right path and plan your career confidently.</p>
       <ul class="card-includes">
-        <li>Course & career clarity</li>
+        <li>Course &amp; career clarity</li>
         <li>Opportunities and scope</li>
         <li>Personalised guidance</li>
-        <li>Doubt-solving session</li>
       </ul>
       <div class="card-price">₹499 <s>₹999</s> · 30 mins</div>
       <a href="https://topmate.io/muhammedirshal/2115605?utm_source=public_profile&utm_campaign=muhammedirshal" class="card-btn" target="_blank">Book Now →</a>
@@ -521,7 +632,12 @@
     <div class="work-card">
       <div class="card-icon">💼</div>
       <div class="card-title">Articleship Guidance</div>
-      <p class="card-desc">Stuck choosing a firm? Struggling with office life and studies? Get clarity on your articleship path in one focused 30-minute call.</p>
+      <p class="card-desc">Stuck choosing a firm? Struggling with office life and studies? Get clarity on your articleship path in one focused 30-min call.</p>
+      <ul class="card-includes">
+        <li>Firm selection advice</li>
+        <li>Work-study balance tips</li>
+        <li>Personalised guidance</li>
+      </ul>
       <div class="card-price">₹499 <s>₹999</s> · 30 mins</div>
       <a href="https://topmate.io/muhammedirshal/2115551?utm_source=public_profile&utm_campaign=muhammedirshal" class="card-btn" target="_blank">Book Now →</a>
     </div>
@@ -572,12 +688,21 @@
     </a>
   </div>
 
+  <!-- WHY JOIN CA CONNECT — new banner after 4 communities -->
+  <div class="why-join-banner">
+    <div class="why-join-icon">💡</div>
+    <div class="why-join-content">
+      <div class="why-join-title">Why Join CA Connect?</div>
+      <p class="why-join-desc">Get access to study resources, exam strategies, mentorship, productivity tips, guidance from fellow CA students, and a supportive community that helps you stay consistent throughout your CA journey.</p>
+    </div>
+  </div>
+
   <!-- Mallu Articles Bengaluru special card -->
   <a class="mallu-card" href="https://wa.me/message/A6D35UO3ZV7ID1" target="_blank">
     <div class="mallu-header">
       <div class="mallu-logo">
         <img src="https://i.ibb.co/TBvbyJJ0/MAB-logo.jpg" alt="Mallu Articles Bengaluru"
-             onerror="this.parentElement.outerHTML='<div class=&quot;mallu-logo-fallback&quot;>🌴</div>'"/>
+             onerror="this.parentElement.outerHTML='&lt;div class=&quot;mallu-logo-fallback&quot;&gt;🌴&lt;/div&gt;'"/>
       </div>
       <div class="mallu-title-block">
         <div class="mallu-name">Mallu Articles Bengaluru</div>
@@ -595,7 +720,47 @@
     <span>💬</span>
     <p><strong>Why join the community?</strong>Connect with Kerala-based CA/CMA students in Bengaluru for articleship updates, networking, events, and peer support — all in one community.</p>
   </div>
+
+  <!-- TESTIMONIAL TRIGGER -->
+  <div class="testimonial-trigger-wrap">
+    <button class="testimonial-trigger" onclick="openTestiModal()">
+      <div class="trig-avatars">
+        <div class="trig-avatar female">👩</div>
+        <div class="trig-avatar female">👩</div>
+        <div class="trig-avatar male">👨</div>
+        <div class="trig-avatar female">👩</div>
+        <div class="trig-avatar female">👩</div>
+      </div>
+      <div class="trig-text">Community Feedback &amp; Success Stories <span>→</span></div>
+      <div class="trig-chevron">✦</div>
+    </button>
+  </div>
 </section>
+
+<!-- TESTIMONIAL MODAL -->
+<div id="testiModal" onclick="handleTestiBackdrop(event)">
+  <div class="testi-box">
+    <div class="testi-header">
+      <div class="testi-header-left">
+        <div class="testi-label">Community Voices</div>
+        <div class="testi-title">Feedback &amp; Success Stories</div>
+      </div>
+      <button class="testi-close" onclick="closeTestiModal()">✕</button>
+    </div>
+
+    <div class="testi-slide-wrap" id="testiSlide">
+      <!-- rendered by JS -->
+    </div>
+
+    <div class="testi-nav">
+      <div class="testi-dots" id="testiDots"></div>
+      <div class="testi-nav-btns">
+        <button class="testi-btn" onclick="moveTesti(-1)">‹</button>
+        <button class="testi-btn" onclick="moveTesti(1)">›</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- SHOP -->
 <section id="shop">
@@ -684,7 +849,7 @@
       </div>
       <div class="shop-body">
         <div class="shop-title">CA vs CMA vs ACCA: Which Course Should You Choose?</div>
-        <div class="shop-meta">Complete Comparison of Scope, Difficulty, Cost, Salary & Career Opportunities</div>
+        <div class="shop-meta">Complete Comparison of Scope, Difficulty, Cost, Salary &amp; Career Opportunities</div>
         <div class="shop-footer">
           <div class="shop-price" style="font-size:.85rem;color:var(--gray);">Coming Soon</div>
           <span class="shop-buy" style="opacity:.6;cursor:not-allowed;">Upcoming</span>
@@ -736,14 +901,13 @@
   </div>
 
   <div class="workshop-card" style="position:relative;overflow:hidden;">
-    <!-- Animated UPCOMING banner across the card -->
     <div class="workshop-upcoming-banner">
       <span>⚡ COMING SOON &nbsp;&nbsp;·&nbsp;&nbsp; ⚡ COMING SOON &nbsp;&nbsp;·&nbsp;&nbsp; ⚡ COMING SOON &nbsp;&nbsp;·&nbsp;&nbsp; ⚡ COMING SOON &nbsp;&nbsp;·&nbsp;&nbsp; ⚡ COMING SOON &nbsp;&nbsp;·&nbsp;&nbsp; ⚡ COMING SOON &nbsp;&nbsp;·&nbsp;&nbsp;</span>
     </div>
 
     <div style="position:relative;z-index:2;padding-top:1.5rem;">
       <div class="live-badge"><span class="live-dot"></span> UPCOMING LIVE</div>
-      <h3 class="workshop-title">Build Your CA Career & Online Presence — Live Workshop</h3>
+      <h3 class="workshop-title">Build Your CA Career &amp; Online Presence — Live Workshop</h3>
       <p class="workshop-desc">A hands-on live session covering study strategy, content creation for CA students, personal branding, and how to stand out in your articleship and beyond.</p>
       <div class="workshop-details">
         <div class="detail-pill">📅 Date TBA</div>
@@ -752,10 +916,10 @@
         <div class="detail-pill">⏱ 1–2 Hours</div>
       </div>
       <ul class="workshop-includes">
-        <li>CA exam strategy & time management framework</li>
+        <li>CA exam strategy &amp; time management framework</li>
         <li>How to build your personal brand as a CA student</li>
         <li>Content creation basics — what to post, how to grow</li>
-        <li>Live Q&A — your questions answered in real time</li>
+        <li>Live Q&amp;A — your questions answered in real time</li>
         <li>Recording access for 30 days after the session</li>
       </ul>
       <div style="display:flex;gap:1rem;flex-wrap:wrap;">
@@ -807,48 +971,181 @@
 </footer>
 
 <script>
-  function showUpcomingPopup() {
-    const modal = document.getElementById('upcomingModal');
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
+// ── TESTIMONIALS DATA ──
+const testimonials = [
+  {
+    gender: 'female',
+    name: 'Hiba P',
+    role: 'CA Foundation — AIR 3',
+    stars: 5,
+    text: "Thank you so much ❤️ All the voice messages you sent were very motivating and encouraging. Please continue sharing your voice messages and videos… they truly help!"
+  },
+  {
+    gender: 'female',
+    name: 'Razana',
+    role: 'CA Intermediate Student',
+    stars: 5,
+    text: "I didn't expect this result at all 🥹 Alhamdulillah. Your videos motivated me to study more. Thank you so much 🥹"
+  },
+  {
+    gender: 'female',
+    name: 'Shamna',
+    role: 'CA Foundation Student',
+    stars: 5,
+    text: "You are really inspiring ✨❤️ Sometimes I don't know what's going on — my studies and inner thoughts are a total mess 🫠. But your videos give me hope that it's going to be fine 🙂. Back in foundation, one speech gave me so much hope and ambition — and that was YOU 🥹🤌. I never forgot you. Hope I get to hear you recognised as ✨ CA Irshal ✨"
+  },
+  {
+    gender: 'female',
+    name: 'Hanna',
+    role: 'CA Student · Instagram Follower',
+    stars: 5,
+    text: "Hello! I just wanted to thank you for your recent reel. I'm a CA student and was feeling quite low, but your words gave me clarity and reminded me why I started. It truly helped me today — really grateful for it. Hoping for more videos like this!"
+  },
+  {
+    gender: 'female',
+    name: 'Bhavika Yadav',
+    role: 'CA Aspirant · Instagram Follower',
+    stars: 5,
+    text: "Your videos are so amazing and day by day my CA goal is becoming stronger by watching your videos."
+  },
+  {
+    gender: 'male',
+    name: 'Instagram Follower',
+    role: 'CA Aspirant',
+    stars: 5,
+    text: "Thanks — you've always been an inspiration and a good reason for me to choose CA ❤️"
+  },
+  {
+    gender: 'female',
+    name: 'Shifa Ali',
+    role: 'Study Tracker Customer',
+    stars: 5,
+    text: "Hey, I am using the study tracker — it's really great and very helpful for maintaining discipline. Thank you so much! ✨💕"
   }
-  function closeUpcomingPopup() {
-    document.getElementById('upcomingModal').style.display = 'none';
-    document.body.style.overflow = '';
+];
+
+let testiCurrent = 0;
+let testiAuto = null;
+
+function renderTesti(idx, dir) {
+  const t = testimonials[idx];
+  const slide = document.getElementById('testiSlide');
+  const dirClass = dir === 1 ? 'slide-in-right' : 'slide-in-left';
+
+  const stars = Array(t.stars).fill('<span>★</span>').join('');
+  const avatarEmoji = t.gender === 'female' ? '👩' : '👨';
+
+  slide.innerHTML = `
+    <div class="${dirClass}">
+      <div class="testi-person">
+        <div class="testi-avatar ${t.gender}">${avatarEmoji}</div>
+        <div>
+          <div class="testi-name">${t.name}</div>
+          <div class="testi-role">${t.role}</div>
+        </div>
+      </div>
+      <div class="testi-stars">${stars}</div>
+      <div class="testi-quote">${t.text}</div>
+    </div>
+  `;
+
+  // update dots
+  const dots = document.getElementById('testiDots');
+  dots.innerHTML = testimonials.map((_, i) =>
+    `<div class="testi-dot${i === idx ? ' active' : ''}" onclick="goTesti(${i})"></div>`
+  ).join('');
+}
+
+function moveTesti(dir) {
+  const prev = testiCurrent;
+  testiCurrent = (testiCurrent + dir + testimonials.length) % testimonials.length;
+  renderTesti(testiCurrent, dir);
+  resetAutoPlay();
+}
+
+function goTesti(idx) {
+  const dir = idx > testiCurrent ? 1 : -1;
+  testiCurrent = idx;
+  renderTesti(testiCurrent, dir);
+  resetAutoPlay();
+}
+
+function resetAutoPlay() {
+  clearInterval(testiAuto);
+  testiAuto = setInterval(() => moveTesti(1), 4500);
+}
+
+function openTestiModal() {
+  testiCurrent = 0;
+  renderTesti(0, 1);
+  document.getElementById('testiModal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  resetAutoPlay();
+}
+
+function closeTestiModal() {
+  document.getElementById('testiModal').style.display = 'none';
+  document.body.style.overflow = '';
+  clearInterval(testiAuto);
+}
+
+function handleTestiBackdrop(e) {
+  if (e.target === document.getElementById('testiModal')) closeTestiModal();
+}
+
+// keyboard navigation
+document.addEventListener('keydown', e => {
+  if (document.getElementById('testiModal').style.display === 'flex') {
+    if (e.key === 'ArrowRight') moveTesti(1);
+    if (e.key === 'ArrowLeft') moveTesti(-1);
+    if (e.key === 'Escape') closeTestiModal();
   }
-  document.getElementById('upcomingModal').addEventListener('click', function(e) {
-    if (e.target === this) closeUpcomingPopup();
+  if (document.getElementById('upcomingModal').style.display === 'flex' && e.key === 'Escape') closeUpcomingPopup();
+});
+
+// ── EXISTING FUNCTIONS ──
+function showUpcomingPopup() {
+  const modal = document.getElementById('upcomingModal');
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeUpcomingPopup() {
+  document.getElementById('upcomingModal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.getElementById('upcomingModal').addEventListener('click', function(e) {
+  if (e.target === this) closeUpcomingPopup();
+});
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+});
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+function filterShop(cat, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.shop-card').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'block' : 'none';
   });
-  window.addEventListener('scroll', () => {
-    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+}
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
   });
-  function toggleMenu() {
-    document.getElementById('mobileMenu').classList.toggle('open');
-  }
-  function closeMenu() {
-    document.getElementById('mobileMenu').classList.remove('open');
-  }
-  function filterShop(cat, btn) {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.shop-card').forEach(card => {
-      card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'block' : 'none';
-    });
-  }
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.work-card, .comm-card, .mallu-card, .shop-card, .workshop-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity .5s ease, transform .5s ease';
-    observer.observe(el);
-  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.work-card, .comm-card, .mallu-card, .shop-card, .workshop-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity .5s ease, transform .5s ease';
+  observer.observe(el);
+});
 </script>
 </body>
 </html>

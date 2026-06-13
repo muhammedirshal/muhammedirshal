@@ -41,7 +41,7 @@
   .mobile-menu.open{display:flex;}
 
   /* HERO */
-  #hero{min-height:100vh;padding-top:64px;display:grid;place-items:center;background:linear-gradient(135deg,#0D0B1A 0%,#1A1040 50%,#2A1870 100%);position:relative;overflow:hidden;}
+  #hero{min-height:100vh;padding-top:100px;display:grid;place-items:center;background:linear-gradient(135deg,#0D0B1A 0%,#1A1040 50%,#2A1870 100%);position:relative;overflow:hidden;}
   .hero-bg-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;}
   .orb1{width:500px;height:500px;background:rgba(74,44,219,.35);top:-100px;right:-100px;}
   .orb2{width:350px;height:350px;background:rgba(212,175,55,.12);bottom:0;left:-80px;}
@@ -63,8 +63,167 @@
   .btn-outline:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.6);}
   .hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);animation:bounce 2s infinite;opacity:.4;}
   .hero-scroll svg{width:24px;height:24px;stroke:#fff;}
+  /* ── TICKER BANNER ── */
+  .ticker-wrap{background:linear-gradient(90deg,#0D0B1A,#1A1040,#0D0B1A);overflow:hidden;white-space:nowrap;padding:.55rem 0;border-bottom:1px solid rgba(212,175,55,.2);position:relative;z-index:998;}
+  .ticker-track{display:inline-flex;align-items:center;gap:2rem;animation:tickerScroll 30s linear infinite;will-change:transform;}
+  .ticker-track:hover{animation-play-state:paused;}
+  .ticker-item{font-size:.8rem;font-weight:600;color:var(--gold);letter-spacing:.2px;white-space:nowrap;}
+  .ticker-sep{color:rgba(212,175,55,.4);font-size:.7rem;}
+  @keyframes tickerScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  /* ── STUDENT SUCCESS CARD ── */
+  .success-card{background:var(--white);border:1.5px solid var(--purple-pale);border-radius:20px;padding:2rem 2.4rem;display:flex;align-items:center;gap:2.5rem;max-width:900px;margin:0 auto;box-shadow:0 6px 30px rgba(74,44,219,.08);position:relative;overflow:hidden;}
+  .success-card::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;background:rgba(212,175,55,.08);border-radius:50%;}
+  .success-card-left{flex:1;position:relative;z-index:1;}
+  .success-card-trophy{font-size:2rem;margin-bottom:.5rem;display:block;}
+  .success-card-rank{display:inline-flex;align-items:center;gap:.4rem;background:rgba(212,175,55,.12);border:1px solid rgba(212,175,55,.4);color:#9A7B1A;padding:.25rem .85rem;border-radius:20px;font-size:.75rem;font-weight:800;letter-spacing:.6px;margin-bottom:.7rem;}
+  .success-card-title{font-family:'Playfair Display',serif;font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:900;color:var(--dark);line-height:1.2;margin-bottom:.6rem;}
+  .success-card-title span{color:var(--purple);}
+  .success-card-desc{font-size:.85rem;color:var(--gray);line-height:1.65;margin-bottom:1rem;max-width:480px;}
+  .success-card-btn{display:inline-flex;align-items:center;gap:.4rem;background:var(--purple);color:#fff;padding:.55rem 1.3rem;border-radius:40px;font-size:.83rem;font-weight:700;text-decoration:none;transition:background .2s,transform .2s;}
+  .success-card-btn:hover{background:var(--purple-mid);transform:translateY(-1px);}
+  .success-card-right{display:flex;flex-direction:column;align-items:center;gap:1rem;flex-shrink:0;position:relative;z-index:1;}
+  .success-card-stat{background:linear-gradient(135deg,var(--purple-bg),var(--purple-pale));border:1.5px solid var(--purple-pale);border-radius:16px;padding:1.2rem 2rem;text-align:center;}
+  .success-stat-num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:900;color:var(--purple);line-height:1;}
+  .success-stat-label{font-size:.72rem;font-weight:700;color:var(--gray);letter-spacing:.5px;text-transform:uppercase;margin-top:.2rem;}
+  .success-card-pills{display:flex;flex-direction:column;gap:.4rem;}
+  .success-card-pills span{background:var(--purple-bg);border:1px solid var(--purple-pale);color:var(--dark);padding:.3rem .8rem;border-radius:20px;font-size:.76rem;font-weight:600;text-align:center;}
+  @media(max-width:600px){.success-card{flex-direction:column;gap:1.4rem;}.success-card-right{flex-direction:row;flex-wrap:wrap;justify-content:center;}.success-card-pills{flex-direction:row;flex-wrap:wrap;justify-content:center;}}
+
+  /* ── IMPACT & LEADERSHIP ── */
+  #impact{background:var(--white);padding:5rem 5%;}
+  .impact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.3rem;margin-top:2.5rem;}
+  .impact-card{background:var(--purple-bg);border:1px solid var(--purple-pale);border-radius:var(--radius);padding:1.8rem;display:flex;flex-direction:column;gap:.8rem;transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden;}
+  .impact-card::after{content:'';position:absolute;top:-30px;right:-30px;width:100px;height:100px;background:rgba(74,44,219,.06);border-radius:50%;}
+  .impact-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .impact-card.gold{background:linear-gradient(135deg,#0D0B1A,#1A1040);border-color:rgba(212,175,55,.3);}
+  .impact-card.gold .impact-title{color:#fff;}
+  .impact-card.gold .impact-desc{color:rgba(255,255,255,.65);}
+  .impact-icon{font-size:2rem;position:relative;z-index:1;}
+  .impact-title{font-weight:700;font-size:.97rem;color:var(--dark);line-height:1.35;position:relative;z-index:1;}
+  .impact-desc{font-size:.84rem;color:var(--gray);line-height:1.65;position:relative;z-index:1;}
+
+  /* ── REEL CARDS ── */
+  .reel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.5rem;}
+  .reel-card{border-radius:16px;overflow:hidden;background:var(--dark);border:1px solid rgba(255,255,255,.06);transition:transform .3s,box-shadow .3s;cursor:pointer;text-decoration:none;color:inherit;display:flex;flex-direction:column;}
+  .reel-card:hover{transform:translateY(-5px) scale(1.02);box-shadow:0 20px 60px rgba(0,0,0,.4);}
+  .reel-thumb{aspect-ratio:9/16;max-height:420px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;flex:1;}
+  .reel-thumb-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:7rem;opacity:.1;}
+  .reel-thumb-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.9) 0%,rgba(0,0,0,.1) 50%,transparent 100%);}
+  .reel-play{width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.15);backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;font-size:1.5rem;position:relative;z-index:1;transition:transform .2s,background .2s;}
+  .reel-card:hover .reel-play{transform:scale(1.15);background:rgba(255,255,255,.3);}
+  .reel-tag{position:absolute;top:.9rem;left:.9rem;z-index:1;background:rgba(212,175,55,.92);color:#0D0B1A;font-size:.68rem;font-weight:800;padding:.25rem .7rem;border-radius:20px;letter-spacing:.3px;}
+  .reel-ig-badge{position:absolute;top:.9rem;right:.9rem;z-index:1;background:linear-gradient(135deg,#f09433,#dc2743,#bc1888);color:#fff;font-size:.7rem;font-weight:700;padding:.25rem .55rem;border-radius:8px;}
+  .reel-body{padding:1.1rem 1.3rem 1.4rem;background:linear-gradient(180deg,rgba(13,11,26,.95),#0D0B1A);}
+  .reel-title{font-weight:700;font-size:.9rem;color:#fff;line-height:1.4;margin-bottom:.3rem;}
+  .reel-meta{font-size:.74rem;color:rgba(255,255,255,.45);}
+  @media(max-width:700px){.reel-grid{grid-template-columns:1fr;}.reel-thumb{max-height:340px;}}
+
   @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(8px);}}
   @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+
+  /* ── TRUST SECTION ── */
+  #trust{background:var(--white);padding:5rem 5%;}
+  .trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;margin-top:2.5rem;}
+  .trust-item{background:var(--purple-bg);border:1px solid var(--purple-pale);border-radius:var(--radius);padding:1.6rem 1.8rem;display:flex;align-items:flex-start;gap:1.1rem;transition:transform .25s,box-shadow .25s;}
+  .trust-item:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .trust-icon{width:50px;height:50px;border-radius:12px;background:linear-gradient(135deg,var(--purple),var(--purple-mid));display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;}
+  .trust-text{font-size:.93rem;font-weight:700;color:var(--dark);line-height:1.4;}
+  .trust-sub{font-size:.8rem;color:var(--gray);margin-top:.25rem;font-weight:400;}
+
+  /* ── TIMELINE ── */
+  #journey{background:var(--light);padding:5rem 5%;}
+  .timeline{position:relative;max-width:780px;margin:3rem auto 0;}
+  .timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--purple),var(--purple-pale));transform:translateX(-50%);}
+  .tl-item{display:grid;grid-template-columns:1fr 24px 1fr;gap:1.2rem;margin-bottom:2rem;align-items:start;}
+  .tl-content{background:var(--white);border:1px solid var(--purple-pale);border-radius:var(--radius);padding:1.3rem 1.5rem;transition:transform .25s,box-shadow .25s;}
+  .tl-content:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  .tl-content.right{grid-column:3;}
+  .tl-content.left{grid-column:1;text-align:right;}
+  .tl-year{font-family:'Playfair Display',serif;font-size:1rem;font-weight:900;color:var(--purple);margin-bottom:.25rem;}
+  .tl-event{font-size:.88rem;font-weight:700;color:var(--dark);margin-bottom:.2rem;line-height:1.3;}
+  .tl-desc{font-size:.78rem;color:var(--gray);line-height:1.5;}
+  .tl-dot{width:16px;height:16px;border-radius:50%;background:var(--purple);border:3px solid var(--white);box-shadow:0 0 0 3px var(--purple);grid-column:2;margin-top:1rem;position:relative;z-index:1;justify-self:center;}
+  .tl-empty{grid-column:auto;}
+  @media(max-width:600px){
+    .timeline::before{left:14px;}
+    .tl-item{grid-template-columns:20px 1fr;gap:.8rem;}
+    .tl-dot{grid-column:1;width:14px;height:14px;}
+    .tl-content,.tl-content.right,.tl-content.left{grid-column:2;text-align:left;}
+    .tl-empty{display:none;}
+  }
+
+  /* ── FREE RESOURCES ── */
+  #free-resources{background:var(--white);padding:5rem 5%;}
+  .resources-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;margin-top:2.5rem;}
+  .resource-card{background:var(--purple-bg);border:1px solid var(--purple-pale);border-radius:var(--radius);padding:1.6rem;display:flex;flex-direction:column;gap:.8rem;transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden;}
+  .resource-card::before{content:'FREE';position:absolute;top:14px;right:-8px;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;font-size:.62rem;font-weight:800;padding:.25rem 1rem .25rem .7rem;letter-spacing:.8px;clip-path:polygon(0 0,100% 0,85% 50%,100% 100%,0 100%);}
+  .resource-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .resource-icon{font-size:2rem;}
+  .resource-title{font-weight:700;font-size:.95rem;color:var(--dark);line-height:1.3;padding-right:2rem;}
+  .resource-desc{font-size:.82rem;color:var(--gray);line-height:1.55;}
+  .resource-btn{display:inline-flex;align-items:center;gap:.4rem;background:var(--purple);color:#fff;padding:.5rem 1.1rem;border-radius:40px;font-size:.8rem;font-weight:700;text-decoration:none;transition:background .2s;align-self:flex-start;margin-top:auto;}
+  .resource-btn:hover{background:var(--purple-mid);}
+
+  /* ── NEWSLETTER ── */
+  #newsletter{background:linear-gradient(135deg,#0D0B1A 0%,#1A1040 60%,#2A1870 100%);padding:5rem 5%;text-align:center;position:relative;overflow:hidden;}
+  #newsletter::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:rgba(74,44,219,.2);border-radius:50%;filter:blur(60px);}
+  .newsletter-inner{max-width:560px;margin:0 auto;position:relative;z-index:1;}
+  .newsletter-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(212,175,55,.15);border:1px solid rgba(212,175,55,.35);color:var(--gold);padding:.3rem .9rem;border-radius:40px;font-size:.78rem;font-weight:700;letter-spacing:.5px;margin-bottom:1.2rem;}
+  .newsletter-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;color:#fff;margin-bottom:.6rem;line-height:1.15;}
+  .newsletter-sub{font-size:.9rem;color:rgba(255,255,255,.6);margin-bottom:1.6rem;line-height:1.7;}
+  .newsletter-perks{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-bottom:2rem;}
+  .nl-perk{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);padding:.3rem .85rem;border-radius:20px;font-size:.8rem;}
+  .newsletter-form{display:flex;gap:.7rem;max-width:440px;margin:0 auto;flex-wrap:wrap;}
+  .newsletter-form input{flex:1;min-width:190px;padding:.8rem 1.2rem;border-radius:40px;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:#fff;font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;}
+  .newsletter-form input::placeholder{color:rgba(255,255,255,.4);}
+  .newsletter-form input:focus{border-color:rgba(255,255,255,.4);}
+  .newsletter-form button{background:var(--gold);color:#0D0B1A;padding:.8rem 1.8rem;border-radius:40px;border:none;font-weight:700;font-size:.9rem;cursor:pointer;font-family:'DM Sans',sans-serif;transition:transform .2s,box-shadow .2s;white-space:nowrap;}
+  .newsletter-form button:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(212,175,55,.4);}
+  .nl-success{display:none;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.4);color:#4ade80;padding:.8rem 1.4rem;border-radius:12px;font-size:.9rem;margin-top:1rem;}
+
+  /* ── FEATURED CONTENT ── */
+  #featured{background:var(--light);padding:5rem 5%;}
+  .featured-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.4rem;margin-top:2.5rem;}
+  .featured-card{border-radius:var(--radius);overflow:hidden;background:var(--white);border:1px solid var(--purple-pale);transition:transform .3s,box-shadow .3s;cursor:pointer;text-decoration:none;color:inherit;display:block;}
+  .featured-card:hover{transform:translateY(-5px);box-shadow:0 16px 50px rgba(74,44,219,.18);}
+  .featured-thumb{height:190px;background:linear-gradient(135deg,var(--dark),#2A1870);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .featured-thumb-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:5rem;opacity:.15;}
+  .featured-thumb-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,11,26,.85) 0%,transparent 60%);}
+  .featured-play{width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);border:2px solid rgba(255,255,255,.45);display:flex;align-items:center;justify-content:center;font-size:1.5rem;position:relative;z-index:1;transition:transform .2s,background .2s;}
+  .featured-card:hover .featured-play{transform:scale(1.12);background:rgba(255,255,255,.32);}
+  .featured-tag{position:absolute;bottom:.8rem;left:.8rem;z-index:1;background:rgba(212,175,55,.92);color:#0D0B1A;font-size:.68rem;font-weight:800;padding:.2rem .6rem;border-radius:20px;letter-spacing:.3px;}
+  .featured-body{padding:1.2rem 1.4rem;}
+  .featured-title{font-weight:700;font-size:.93rem;color:var(--dark);line-height:1.4;margin-bottom:.4rem;}
+  .featured-meta{font-size:.77rem;color:var(--gray);}
+
+  /* ── STICKY WHATSAPP ── */
+  .wa-sticky{position:fixed;bottom:1.8rem;right:1.8rem;z-index:9996;display:flex;align-items:center;gap:.6rem;background:linear-gradient(135deg,#128C7E,#25D366);color:#fff;padding:.7rem 1.2rem .7rem .8rem;border-radius:50px;font-weight:700;font-size:.85rem;text-decoration:none;box-shadow:0 8px 28px rgba(37,211,102,.45);transition:transform .25s,box-shadow .25s;animation:waEntrance .6s .8s cubic-bezier(.34,1.56,.64,1) both;}
+  .wa-sticky:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 12px 36px rgba(37,211,102,.6);}
+  .wa-sticky svg{width:22px;height:22px;fill:#fff;flex-shrink:0;}
+  @keyframes waEntrance{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+
+  /* ── FLOATING CTA ── */
+  .float-cta{position:fixed;bottom:5.2rem;right:1.8rem;z-index:9995;background:var(--white);border:1.5px solid var(--purple-pale);border-radius:16px;padding:1rem 1.1rem;box-shadow:0 12px 40px rgba(74,44,219,.22);width:215px;transform:translateY(20px);opacity:0;pointer-events:none;transition:all .4s cubic-bezier(.34,1.56,.64,1);}
+  .float-cta.visible{transform:translateY(0);opacity:1;pointer-events:auto;}
+  .float-cta-label{font-size:.72rem;color:var(--gray);margin-bottom:.25rem;font-weight:500;}
+  .float-cta-title{font-weight:700;font-size:.88rem;color:var(--dark);margin-bottom:.65rem;line-height:1.3;}
+  .float-cta-btn{display:block;background:var(--purple);color:#fff;padding:.52rem 1rem;border-radius:40px;font-size:.82rem;font-weight:700;text-decoration:none;text-align:center;transition:background .2s;}
+  .float-cta-btn:hover{background:var(--purple-mid);}
+  .float-cta-close{position:absolute;top:.5rem;right:.6rem;background:none;border:none;cursor:pointer;color:var(--gray);font-size:1rem;line-height:1;padding:.1rem;}
+
+  /* ── EXIT INTENT POPUP ── */
+  #exitPopup{display:none;position:fixed;inset:0;z-index:99999;background:rgba(13,11,26,.78);backdrop-filter:blur(10px);align-items:center;justify-content:center;}
+  .exit-modal{background:#fff;border-radius:24px;padding:2.5rem 2rem;max-width:400px;width:92%;text-align:center;position:relative;box-shadow:0 40px 100px rgba(74,44,219,.3);animation:popIn .4s cubic-bezier(.34,1.56,.64,1) both;}
+  .exit-emoji{font-size:3.5rem;margin-bottom:.8rem;display:block;}
+  .exit-headline{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--dark);margin-bottom:.4rem;}
+  .exit-sub{font-size:.9rem;color:var(--gray);margin-bottom:.3rem;line-height:1.6;}
+  .exit-price{font-size:1.1rem;font-weight:700;color:var(--purple);margin-bottom:1.4rem;}
+  .exit-cta{display:block;background:var(--gold);color:#0D0B1A;padding:.85rem 2rem;border-radius:40px;font-weight:800;font-size:1rem;text-decoration:none;margin:0 auto 1rem;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 24px rgba(212,175,55,.35);}
+  .exit-cta:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(212,175,55,.5);}
+  .exit-dismiss{background:none;border:none;font-size:.85rem;color:var(--gray);cursor:pointer;text-decoration:underline;font-family:'DM Sans',sans-serif;}
+  .exit-x{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--gray);line-height:1;}
+  @keyframes popIn{from{opacity:0;transform:scale(.85);}to{opacity:1;transform:scale(1);}}
 
   /* SECTIONS SHARED */
   section{padding:5rem 5%;}
@@ -318,13 +477,25 @@
   <a href="#workshop" onclick="closeMenu()" style="color:var(--purple);font-weight:700;">Register Now →</a>
 </div>
 
-<!-- HERO -->
+<!-- SCROLLING TICKER BANNER -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span class="ticker-item">🎉 Proud Moment: A member of our CA Foundation Connect community secured AIR 3 in CA Foundation 2026</span>
+    <span class="ticker-sep">✦</span>
+    <span class="ticker-item">🎉 Proud Moment: A member of our CA Foundation Connect community secured AIR 3 in CA Foundation 2026</span>
+    <span class="ticker-sep">✦</span>
+    <span class="ticker-item">🎉 Proud Moment: A member of our CA Foundation Connect community secured AIR 3 in CA Foundation 2026</span>
+    <span class="ticker-sep">✦</span>
+    <span class="ticker-item">🎉 Proud Moment: A member of our CA Foundation Connect community secured AIR 3 in CA Foundation 2026</span>
+    <span class="ticker-sep">✦</span>
+  </div>
+</div>
 <section id="hero">
   <div class="hero-bg-orb orb1"></div>
   <div class="hero-bg-orb orb2"></div>
   <div class="hero-bg-orb orb3"></div>
   <div class="hero-inner">
-    <div class="hero-badge">CA Finalist · Founder · Mentor · Content Creator</div>
+    <div class="hero-badge">CA Finalist · Community Builder · Mentor · Content Creator</div>
     <div class="hero-photo">
       <img src="https://i.ibb.co/h1YH5wBv/Linkedin-d-P.jpg" alt="Muhammed Irshal" onerror="this.parentElement.innerHTML='👤'"/>
     </div>
@@ -343,6 +514,100 @@
   </div>
   <div class="hero-scroll">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</section>
+
+<!-- STUDENT SUCCESS -->
+<section id="student-success" style="background:var(--light);padding:2.5rem 5%;">
+  <div class="success-card">
+    <div class="success-card-left">
+      <div class="success-card-trophy">🏆</div>
+      <div class="success-card-rank">AIR 3 · CA Foundation 2026</div>
+      <h2 class="success-card-title">Our Community Member Secured <span>All India Rank 3</span></h2>
+      <p class="success-card-desc">One of our CA Foundation Connect members achieved All India Rank 3 in CA Foundation 2026 — a testament to consistency, community support, and the right guidance.</p>
+      <a href="https://wa.me/message/A6D35UO3ZV7ID1" class="success-card-btn" target="_blank">Join the Community →</a>
+    </div>
+    <div class="success-card-right">
+      <div class="success-card-stat">
+        <div class="success-stat-num">#3</div>
+        <div class="success-stat-label">All India Rank</div>
+      </div>
+      <div class="success-card-pills">
+        <span>📚 Consistency</span>
+        <span>🤝 Community</span>
+        <span>🎯 Guidance</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT & LEADERSHIP -->
+<section id="impact">
+  <div class="section-head">
+    <div class="section-label">Impact &amp; Leadership</div>
+    <h2 class="section-title">Building More Than<br/>Just Communities.</h2>
+    <p class="section-sub">Real events, real results, real people — a track record that speaks louder than any bio.</p>
+  </div>
+  <div class="impact-grid">
+    <div class="impact-card gold">
+      <div class="impact-icon">🏆</div>
+      <div class="impact-title">Community Member Secured AIR 3 in CA Foundation 2026</div>
+      <div class="impact-desc" style="color:rgba(255,255,255,.65);">A proud milestone that reflects the power of consistency, community support, and student-driven growth within our CA Foundation Connect community.</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-icon">🎉</div>
+      <div class="impact-title">Organised Chai, Chill &amp; Chartered 2025</div>
+      <div class="impact-desc">The first offline meetup of Mallu Articles Bengaluru — bringing together CA and CMA students for networking, cultural activities, meaningful conversations, and community building.</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-icon">🌙</div>
+      <div class="impact-title">Organised Mizaaniya 1.0</div>
+      <div class="impact-desc">A community Iftar gathering hosted by Mallu Articles Bengaluru, fostering connections among CA/CMA students and professionals through fellowship, networking, and shared experiences during Ramadan.</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-icon">👥</div>
+      <div class="impact-title">Built &amp; Managed Student Communities</div>
+      <div class="impact-desc">Actively building and nurturing student communities across Kerala and Bengaluru — creating opportunities for networking, mentorship, collaboration, and professional growth.</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY STUDENTS TRUST -->
+<section id="trust">
+  <div class="section-head">
+    <div class="section-label">Credibility</div>
+    <h2 class="section-title">Why Students Trust<br/>My Guidance</h2>
+    <p class="section-sub">Not just words — results, community, and consistency that speaks for itself.</p>
+  </div>
+  <div class="trust-grid">
+    <div class="trust-item">
+      <div class="trust-icon">🏆</div>
+      <div>
+        <div class="trust-text">Cleared CA Intermediate Both Groups in First Attempt</div>
+        <div class="trust-sub">Proof that the right strategy beats hard work alone.</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">🌍</div>
+      <div>
+        <div class="trust-text">Built Communities Across Kerala &amp; Bengaluru</div>
+        <div class="trust-sub">Thousands of students connected under one mission.</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">🎓</div>
+      <div>
+        <div class="trust-text">Mentored Students Across CA Levels</div>
+        <div class="trust-sub">Foundation to Final — personalised guidance at every stage.</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">📲</div>
+      <div>
+        <div class="trust-text">Creating Career &amp; Productivity Content Daily</div>
+        <div class="trust-sub">Consistent value — not just when it's convenient.</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -411,7 +676,7 @@
 <section id="community">
   <div class="section-head">
     <div class="section-label">Join the Community</div>
-    <h2 class="section-title">4 communities. One goal —<br/>to clear CA together.</h2>
+    <h2 class="section-title">4 communities. One goal — helping students achieve extraordinary results, including AIR 3 in CA Foundation 2026.</h2>
     <p class="section-sub">Join the WhatsApp community that matches your stage. Get free resources, updates, peer support, and direct access to guidance.</p>
   </div>
 
@@ -728,6 +993,233 @@
   </div>
 </div>
 
+<!-- JOURNEY TIMELINE -->
+<section id="journey">
+  <div class="section-head">
+    <div class="section-label">My Journey</div>
+    <h2 class="section-title">From Day One to<br/>Where We Are Now</h2>
+    <p class="section-sub">Every milestone built on the last — a story of consistency, community, and clarity.</p>
+  </div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-content left">
+        <div class="tl-year">2022</div>
+        <div class="tl-event">Started the CA Journey</div>
+        <div class="tl-desc">Took the first step toward becoming a Chartered Accountant — the beginning of everything.</div>
+      </div>
+      <div class="tl-dot"></div>
+      <div class="tl-empty"></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-empty"></div>
+      <div class="tl-dot"></div>
+      <div class="tl-content right">
+        <div class="tl-year">2024</div>
+        <div class="tl-event">Cleared CA Intermediate — Both Groups, First Attempt ✅</div>
+        <div class="tl-desc">A milestone that proved strategy beats hard work alone. Both groups. One shot. No backlogs.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-content left">
+        <div class="tl-year">2024</div>
+        <div class="tl-event">Mentored CA, CMA India &amp; CMA USA Students</div>
+        <div class="tl-desc">Spent 2 months mentoring students at IAM Studies, Calicut — guiding them across CA, CMA India, and CMA USA courses.</div>
+      </div>
+      <div class="tl-dot"></div>
+      <div class="tl-empty"></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-empty"></div>
+      <div class="tl-dot"></div>
+      <div class="tl-content right">
+        <div class="tl-year">2024</div>
+        <div class="tl-event">Started Articleship in Bengaluru</div>
+        <div class="tl-desc">Began articleship in October 2024 in Bengaluru — currently ongoing until October 2026. Real-world CA training in the heart of India's startup capital.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-content left">
+        <div class="tl-year">2024</div>
+        <div class="tl-event">Founded Mallu Articles Bengaluru</div>
+        <div class="tl-desc">A dedicated community for Kerala-based CA/CMA students pursuing articleship in Bengaluru — vacancy updates, referrals, events, and peer support.</div>
+      </div>
+      <div class="tl-dot"></div>
+      <div class="tl-empty"></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-empty"></div>
+      <div class="tl-dot"></div>
+      <div class="tl-content right">
+        <div class="tl-year">2024</div>
+        <div class="tl-event">Started Building Communities Across Kerala</div>
+        <div class="tl-desc">Launched CA Connect communities — Foundation, Intermediate, Articleship, and Final — across Kerala to support students at every level.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-content left">
+        <div class="tl-year">2025</div>
+        <div class="tl-event">Started Daily Content Creation</div>
+        <div class="tl-desc">Began creating career, study, and productivity content daily — reaching thousands of students across Instagram and LinkedIn.</div>
+      </div>
+      <div class="tl-dot"></div>
+      <div class="tl-empty"></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-empty"></div>
+      <div class="tl-dot"></div>
+      <div class="tl-content right">
+        <div class="tl-year">2025</div>
+        <div class="tl-event">Organised Chai, Chill &amp; Chartered 🍵</div>
+        <div class="tl-desc">The first offline meetup of Mallu Articles Bengaluru — CA and CMA students connecting over chai, cultural activities, and real conversations.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-content left">
+        <div class="tl-year">2026</div>
+        <div class="tl-event">Community Member Secures AIR 3 🥇</div>
+        <div class="tl-desc">A proud milestone — one of our CA Foundation Connect members secured All India Rank 3 in CA Foundation 2026. The community produces toppers.</div>
+      </div>
+      <div class="tl-dot" style="background:var(--gold);box-shadow:0 0 0 3px var(--gold);"></div>
+      <div class="tl-empty"></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-empty"></div>
+      <div class="tl-dot"></div>
+      <div class="tl-content right">
+        <div class="tl-year">2026</div>
+        <div class="tl-event">Organised Mizaaniya 1.0 🌙</div>
+        <div class="tl-desc">A community Iftar gathering by Mallu Articles Bengaluru — fostering connections among CA/CMA students through fellowship and shared Ramadan experiences.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-content left">
+        <div class="tl-year">2026</div>
+        <div class="tl-event">Articleship Completion (Ongoing → Oct 2026)</div>
+        <div class="tl-desc">Completing the final leg of articleship in Bengaluru — bridging classroom knowledge with real-world CA practice.</div>
+      </div>
+      <div class="tl-dot"></div>
+      <div class="tl-empty"></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-empty"></div>
+      <div class="tl-dot" style="background:var(--gold);box-shadow:0 0 0 3px var(--gold);border:3px solid #fff;"></div>
+      <div class="tl-content right" style="border-color:rgba(212,175,55,.4);background:linear-gradient(135deg,#0D0B1A,#1A1040);">
+        <div class="tl-year" style="color:var(--gold);">2027</div>
+        <div class="tl-event" style="color:#fff;">Becoming CA ✨</div>
+        <div class="tl-desc" style="color:rgba(255,255,255,.65);">The destination — and a new beginning to serve students at a higher level. The journey doesn't end; it levels up.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FREE RESOURCES -->
+<section id="free-resources">
+  <div class="section-head">
+    <div class="section-label">Free Resources</div>
+    <h2 class="section-title">Tools to Start Your<br/>Journey — at Zero Cost.</h2>
+    <p class="section-sub">Not everything valuable has to be paid. Here are resources I've built for you, completely free.</p>
+  </div>
+  <div class="resources-grid">
+    <div class="resource-card">
+      <div class="resource-icon">🧠</div>
+      <div class="resource-title">Study Mindset Blueprint</div>
+      <div class="resource-desc">Rewire how you think about CA exams. Mindset shifts that separate toppers from repeaters.</div>
+      <a href="https://wa.me/message/A6D35UO3ZV7ID1" class="resource-btn" target="_blank">Download Free →</a>
+    </div>
+    <div class="resource-card">
+      <div class="resource-icon">📋</div>
+      <div class="resource-title">Articleship Checklist</div>
+      <div class="resource-desc">Everything you need to know before, during, and after your articleship. Never feel lost again.</div>
+      <a href="https://wa.me/message/A6D35UO3ZV7ID1" class="resource-btn" target="_blank">Download Free →</a>
+    </div>
+    <div class="resource-card">
+      <div class="resource-icon">🗺️</div>
+      <div class="resource-title">CA Foundation Roadmap</div>
+      <div class="resource-desc">A subject-by-subject roadmap to clear Foundation confidently — built from real experience.</div>
+      <a href="https://wa.me/message/A6D35UO3ZV7ID1" class="resource-btn" target="_blank">Download Free →</a>
+    </div>
+    <div class="resource-card">
+      <div class="resource-icon">🚀</div>
+      <div class="resource-title">Personal Branding PDF</div>
+      <div class="resource-desc">How to build your presence as a CA student even before you qualify. Stand out before Day 1.</div>
+      <a href="https://wa.me/message/A6D35UO3ZV7ID1" class="resource-btn" target="_blank">Download Free →</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section id="newsletter">
+  <div class="newsletter-inner">
+    <div class="newsletter-badge">✦ JOIN THE INNER CIRCLE</div>
+    <h2 class="newsletter-title">Join 1000+ Students<br/>Already Growing</h2>
+    <p class="newsletter-sub">Get the resources, tips, and updates that serious CA students rely on — straight to your inbox.</p>
+    <div class="newsletter-perks">
+      <span class="nl-perk">✓ Study Tips</span>
+      <span class="nl-perk">✓ Career Updates</span>
+      <span class="nl-perk">✓ Workshop Announcements</span>
+      <span class="nl-perk">✓ Free Resources</span>
+    </div>
+    <div class="newsletter-form">
+      <input type="email" id="nlEmail" placeholder="Your email address" autocomplete="email"/>
+      <button onclick="joinNewsletter()">Join Free</button>
+    </div>
+    <div class="nl-success" id="nlSuccess">🎉 You're in! Check your inbox for a welcome gift.</div>
+  </div>
+</section>
+
+<!-- FEATURED CONTENT -->
+<section id="featured">
+  <div class="section-head">
+    <div class="section-label">Featured Content</div>
+    <h2 class="section-title">Watch. Learn.<br/>Apply.</h2>
+    <p class="section-sub">The videos students keep sharing — real answers to real CA struggles.</p>
+  </div>
+  <div class="reel-grid">
+    <a class="reel-card" href="https://instagram.com/ca.kkaaran" target="_blank">
+      <div class="reel-thumb" style="background:#0a0020;">
+        <img src="https://i.ibb.co/zWkmW4yN/CLEAR-LAW-PAPER.jpg" alt="How to Clear CA Foundation Law Paper" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/>
+        <div class="reel-thumb-overlay"></div>
+        <div class="reel-play">▶</div>
+        <div class="reel-tag">📚 Foundation</div>
+        <div class="reel-ig-badge">▶ Reel</div>
+      </div>
+      <div class="reel-body">
+        <div class="reel-title">How to Clear CA Foundation Law Paper?</div>
+        <div class="reel-meta">Study strategy · Instagram Reel</div>
+      </div>
+    </a>
+    <a class="reel-card" href="https://instagram.com/ca.kkaaran" target="_blank">
+      <div class="reel-thumb" style="background:#071a0e;">
+        <img src="https://i.ibb.co/j9pGTDzX/Day-1.jpg" alt="Day 1 of Decoding the Smart Study Series" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/>
+        <div class="reel-thumb-overlay"></div>
+        <div class="reel-play">▶</div>
+        <div class="reel-tag">🔥 Series</div>
+        <div class="reel-ig-badge">▶ Reel</div>
+      </div>
+      <div class="reel-body">
+        <div class="reel-title">Day 1 of Decoding the Smart Study Series</div>
+        <div class="reel-meta">Productivity · Instagram Reel</div>
+      </div>
+    </a>
+    <a class="reel-card" href="https://instagram.com/ca.kkaaran" target="_blank">
+      <div class="reel-thumb" style="background:#1a0505;">
+        <img src="https://i.ibb.co/C53gm3rz/BLACK-HOLE.jpg" alt="How to Escape the CA Black Hole" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/>
+        <div class="reel-thumb-overlay"></div>
+        <div class="reel-play">▶</div>
+        <div class="reel-tag">🎯 Career</div>
+        <div class="reel-ig-badge">▶ Reel</div>
+      </div>
+      <div class="reel-body">
+        <div class="reel-title">How to Escape the CA / CMA / ACCA / CS Black Hole</div>
+        <div class="reel-meta">Career clarity · Instagram Reel</div>
+      </div>
+    </a>
+  </div>
+  <div style="text-align:center;margin-top:2rem;">
+    <a href="https://instagram.com/ca.kkaaran" target="_blank" class="card-btn" style="display:inline-flex;align-items:center;gap:.5rem;">📸 See All Reels on Instagram →</a>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="f-name">Muhammed Irshal</div>
@@ -743,6 +1235,33 @@
   </div>
   <div style="font-size:.78rem;opacity:.5;">© 2026 Muhammed Irshal. All rights reserved.</div>
 </footer>
+
+<!-- STICKY WHATSAPP -->
+<a class="wa-sticky" href="https://wa.me/message/A6D35UO3ZV7ID1" target="_blank">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  Chat on WhatsApp
+</a>
+
+<!-- FLOATING CTA -->
+<div class="float-cta" id="floatCta">
+  <button class="float-cta-close" onclick="document.getElementById('floatCta').style.display='none'">✕</button>
+  <div class="float-cta-label">Need Guidance?</div>
+  <div class="float-cta-title">Book a 5 Min Call<br/>for just ₹29</div>
+  <a class="float-cta-btn" href="https://topmate.io/muhammedirshal/2134275?utm_source=public_profile&utm_campaign=muhammedirshal" target="_blank">Book Now →</a>
+</div>
+
+<!-- EXIT INTENT POPUP -->
+<div id="exitPopup">
+  <div class="exit-modal">
+    <button class="exit-x" onclick="closeExitPopup()">✕</button>
+    <span class="exit-emoji">⏳</span>
+    <h3 class="exit-headline">Wait! Before You Go…</h3>
+    <p class="exit-sub">Get the Study Tracker — the tool used by 1000+ CA students to stay consistent and disciplined.</p>
+    <div class="exit-price">Only ₹29 · Instant Download</div>
+    <a class="exit-cta" href="https://topmate.io/muhammedirshal/2115644?utm_source=public_profile&utm_campaign=muhammedirshal" target="_blank" onclick="closeExitPopup()">Claim Offer →</a>
+    <button class="exit-dismiss" onclick="closeExitPopup()">No thanks, I'll miss out</button>
+  </div>
+</div>
 
 <script>
 // ── COMMUNITY FEEDBACK CAROUSEL ──
@@ -854,13 +1373,131 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeUpcomingPopup();
 });
 
-// scroll reveal
+// ── PARALLAX ORBS ──
+(function(){
+  const orbs = document.querySelectorAll('.hero-bg-orb');
+  document.addEventListener('mousemove', e => {
+    const cx = window.innerWidth / 2, cy = window.innerHeight / 2;
+    const dx = (e.clientX - cx) / cx, dy = (e.clientY - cy) / cy;
+    orbs.forEach((orb, i) => {
+      const strength = (i + 1) * 12;
+      orb.style.transform = `translate(${dx * strength}px, ${dy * strength}px)`;
+    });
+  });
+})();
+
+// ── LETTER REVEAL for hero name ──
+(function(){
+  const nameEl = document.querySelector('.hero-name');
+  if(!nameEl) return;
+  const text = nameEl.innerHTML;
+  // wrap chars but preserve <em> tags
+  let newHTML = '';
+  let delay = 0;
+  let inTag = false;
+  for(let i = 0; i < text.length; i++){
+    if(text[i] === '<'){ inTag = true; }
+    if(inTag){ newHTML += text[i]; if(text[i] === '>') inTag = false; continue; }
+    if(text[i] === ' '){ newHTML += ' '; continue; }
+    newHTML += `<span class="char" style="animation-delay:${delay * 0.045}s">${text[i]}</span>`;
+    delay++;
+  }
+  nameEl.innerHTML = newHTML;
+})();
+
+// ── CARD TILT EFFECT ──
+document.querySelectorAll('.work-card, .shop-card, .resource-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = e.clientX - r.left, y = e.clientY - r.top;
+    const cx = r.width / 2, cy = r.height / 2;
+    const rx = ((y - cy) / cy) * -5;
+    const ry = ((x - cx) / cx) * 5;
+    card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
+    card.style.boxShadow = `${-ry}px ${rx}px 40px rgba(74,44,219,.18)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.style.boxShadow = '';
+  });
+});
+
+// ── TESTIMONIAL FADE UPGRADE ──
+function renderIt(id, idx, dir) {
+  const c = carousels[id];
+  const t = c.data[idx];
+  const slideEl = document.getElementById(id + 'Slide');
+  const dotsEl  = document.getElementById(id + 'Dots');
+  const countEl = document.getElementById(id + 'Count');
+  const av  = t.gender === 'f' ? '👩' : '👨';
+  const stars = '★'.repeat(t.stars);
+  slideEl.innerHTML = `
+    <div class="it-card it-fade">
+      <div class="it-top">
+        <div class="it-av ${t.gender}">${av}</div>
+        <div>
+          <div class="it-name">${t.name}</div>
+          <div class="it-role">${t.role}</div>
+        </div>
+        <div class="it-stars">${[...stars].map(()=>'<span>★</span>').join('')}</div>
+      </div>
+      <div class="it-quote">${t.text}</div>
+    </div>`;
+  if (dotsEl) {
+    dotsEl.innerHTML = c.data.map((_,i) =>
+      `<div class="it-dot${i===idx?' active':''}" onclick="goIt('${id}',${i})"></div>`
+    ).join('');
+  }
+  if (countEl) countEl.textContent = `${idx+1} / ${c.data.length}`;
+}
+
+// ── FLOATING CTA (shows after 40% scroll) ──
+(function(){
+  const cta = document.getElementById('floatCta');
+  let shown = false;
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+    if(pct > 0.4 && !shown){
+      cta.classList.add('visible');
+      shown = true;
+    }
+  });
+})();
+
+// ── EXIT INTENT POPUP ──
+(function(){
+  let fired = false;
+  document.addEventListener('mouseleave', e => {
+    if(e.clientY < 10 && !fired){
+      fired = true;
+      document.getElementById('exitPopup').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+  });
+})();
+function closeExitPopup(){
+  document.getElementById('exitPopup').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.getElementById('exitPopup').addEventListener('click', function(e){
+  if(e.target === this) closeExitPopup();
+});
+
+// ── NEWSLETTER SUBMIT ──
+function joinNewsletter(){
+  const inp = document.getElementById('nlEmail');
+  if(!inp.value || !inp.value.includes('@')){ inp.focus(); return; }
+  inp.value = '';
+  document.getElementById('nlSuccess').style.display = 'block';
+}
+
+// ── SCROLL REVEAL ──
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
   });
 }, { threshold: 0.1 });
-document.querySelectorAll('.work-card,.comm-card,.mallu-card,.shop-card,.workshop-card,.ig-card,.tracker-review').forEach(el => {
+document.querySelectorAll('.work-card,.comm-card,.mallu-card,.shop-card,.workshop-card,.ig-card,.tracker-review,.trust-item,.tl-content,.resource-card,.featured-card').forEach(el => {
   el.style.opacity='0'; el.style.transform='translateY(20px)';
   el.style.transition='opacity .5s ease, transform .5s ease';
   observer.observe(el);

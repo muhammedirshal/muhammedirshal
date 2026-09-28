@@ -131,28 +131,6 @@
   .trust-text{font-size:.93rem;font-weight:700;color:var(--dark);line-height:1.4;}
   .trust-sub{font-size:.8rem;color:var(--gray);margin-top:.25rem;font-weight:400;}
 
-  /* ── TIMELINE ── */
-  #journey{background:var(--light);padding:5rem 5%;}
-  .timeline{position:relative;max-width:780px;margin:3rem auto 0;}
-  .timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--purple),var(--purple-pale));transform:translateX(-50%);}
-  .tl-item{display:grid;grid-template-columns:1fr 24px 1fr;gap:1.2rem;margin-bottom:2rem;align-items:start;}
-  .tl-content{background:var(--white);border:1px solid var(--purple-pale);border-radius:var(--radius);padding:1.3rem 1.5rem;transition:transform .25s,box-shadow .25s;}
-  .tl-content:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
-  .tl-content.right{grid-column:3;}
-  .tl-content.left{grid-column:1;text-align:right;}
-  .tl-year{font-family:'Playfair Display',serif;font-size:1rem;font-weight:900;color:var(--purple);margin-bottom:.25rem;}
-  .tl-event{font-size:.88rem;font-weight:700;color:var(--dark);margin-bottom:.2rem;line-height:1.3;}
-  .tl-desc{font-size:.78rem;color:var(--gray);line-height:1.5;}
-  .tl-dot{width:16px;height:16px;border-radius:50%;background:var(--purple);border:3px solid var(--white);box-shadow:0 0 0 3px var(--purple);grid-column:2;margin-top:1rem;position:relative;z-index:1;justify-self:center;}
-  .tl-empty{grid-column:auto;}
-  @media(max-width:600px){
-    .timeline::before{left:14px;}
-    .tl-item{grid-template-columns:20px 1fr;gap:.8rem;}
-    .tl-dot{grid-column:1;width:14px;height:14px;}
-    .tl-content,.tl-content.right,.tl-content.left{grid-column:2;text-align:left;}
-    .tl-empty{display:none;}
-  }
-
   /* ── FREE RESOURCES ── */
   #free-resources{background:var(--white);padding:5rem 5%;}
   .resources-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;margin-top:2.5rem;}
@@ -165,22 +143,23 @@
   .resource-btn{display:inline-flex;align-items:center;gap:.4rem;background:var(--purple);color:#fff;padding:.5rem 1.1rem;border-radius:40px;font-size:.8rem;font-weight:700;text-decoration:none;transition:background .2s;align-self:flex-start;margin-top:auto;}
   .resource-btn:hover{background:var(--purple-mid);}
 
-  /* ── NEWSLETTER ── */
-  #newsletter{background:linear-gradient(135deg,#0D0B1A 0%,#1A1040 60%,#2A1870 100%);padding:5rem 5%;text-align:center;position:relative;overflow:hidden;}
-  #newsletter::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:rgba(74,44,219,.2);border-radius:50%;filter:blur(60px);}
-  .newsletter-inner{max-width:560px;margin:0 auto;position:relative;z-index:1;}
-  .newsletter-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(212,175,55,.15);border:1px solid rgba(212,175,55,.35);color:var(--gold);padding:.3rem .9rem;border-radius:40px;font-size:.78rem;font-weight:700;letter-spacing:.5px;margin-bottom:1.2rem;}
-  .newsletter-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;color:#fff;margin-bottom:.6rem;line-height:1.15;}
-  .newsletter-sub{font-size:.9rem;color:rgba(255,255,255,.6);margin-bottom:1.6rem;line-height:1.7;}
-  .newsletter-perks{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-bottom:2rem;}
-  .nl-perk{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);padding:.3rem .85rem;border-radius:20px;font-size:.8rem;}
-  .newsletter-form{display:flex;gap:.7rem;max-width:440px;margin:0 auto;flex-wrap:wrap;}
-  .newsletter-form input{flex:1;min-width:190px;padding:.8rem 1.2rem;border-radius:40px;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:#fff;font-size:.9rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;}
-  .newsletter-form input::placeholder{color:rgba(255,255,255,.4);}
-  .newsletter-form input:focus{border-color:rgba(255,255,255,.4);}
-  .newsletter-form button{background:var(--gold);color:#0D0B1A;padding:.8rem 1.8rem;border-radius:40px;border:none;font-weight:700;font-size:.9rem;cursor:pointer;font-family:'DM Sans',sans-serif;transition:transform .2s,box-shadow .2s;white-space:nowrap;}
-  .newsletter-form button:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(212,175,55,.4);}
-  .nl-success{display:none;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.4);color:#4ade80;padding:.8rem 1.4rem;border-radius:12px;font-size:.9rem;margin-top:1rem;}
+  /* ── TELEGRAM SECTION ── */
+  #telegram{background:linear-gradient(135deg,#0D0B1A 0%,#1A1040 60%,#2A1870 100%);padding:5rem 5%;text-align:center;position:relative;overflow:hidden;}
+  #telegram::before{content:'';position:absolute;top:-120px;right:-100px;width:420px;height:420px;background:rgba(34,158,217,.22);border-radius:50%;filter:blur(70px);}
+  #telegram::after{content:'';position:absolute;bottom:-120px;left:-100px;width:340px;height:340px;background:rgba(74,44,219,.28);border-radius:50%;filter:blur(70px);}
+  .tg-card{display:block;max-width:660px;margin:0 auto;text-decoration:none;color:inherit;position:relative;z-index:1;}
+  .tg-icon{width:76px;height:76px;border-radius:50%;background:linear-gradient(135deg,#2AABEE,#229ED9);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;box-shadow:0 10px 40px rgba(34,158,217,.45);transition:transform .3s;}
+  .tg-icon svg{width:36px;height:36px;fill:#fff;margin-right:3px;}
+  .tg-card:hover .tg-icon{transform:scale(1.08) rotate(-6deg);}
+  .tg-title{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,8vw,4.6rem);font-weight:900;color:#fff;line-height:1.05;letter-spacing:-.5px;margin-bottom:1.1rem;}
+  .tg-title em{color:var(--gold);font-style:normal;}
+  .tg-sub{font-size:1rem;color:rgba(255,255,255,.7);line-height:1.8;max-width:540px;margin:0 auto 1.6rem;}
+  .tg-perks{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-bottom:2rem;}
+  .tg-perk{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.85);padding:.3rem .85rem;border-radius:20px;font-size:.8rem;}
+  .tg-btn{display:inline-flex;align-items:center;gap:.6rem;background:linear-gradient(135deg,#2AABEE,#229ED9);color:#fff;padding:.95rem 2.2rem;border-radius:40px;font-weight:800;font-size:1rem;box-shadow:0 8px 32px rgba(34,158,217,.45);transition:transform .25s,box-shadow .25s;}
+  .tg-btn svg{width:20px;height:20px;fill:#fff;}
+  .tg-card:hover .tg-btn{transform:translateY(-3px);box-shadow:0 14px 44px rgba(34,158,217,.6);}
+  .tg-note{margin-top:1rem;font-size:.78rem;color:rgba(255,255,255,.45);}
 
   /* ── FEATURED CONTENT ── */
   #featured{background:var(--light);padding:5rem 5%;}
@@ -267,6 +246,8 @@
   .comm-info{flex:1;}
   .comm-name{font-weight:700;font-size:.95rem;color:var(--dark);margin-bottom:.2rem;}
   .comm-tag{font-size:.78rem;color:var(--gray);font-weight:500;}
+  .comm-count{display:inline-flex;align-items:center;gap:.35rem;margin-top:.5rem;background:var(--purple-pale);color:var(--purple);font-size:.76rem;font-weight:800;padding:.22rem .7rem;border-radius:20px;}
+  .comm-count .count-num{font-variant-numeric:tabular-nums;}
   .comm-arrow{color:var(--purple);font-size:1.2rem;opacity:.5;transition:opacity .2s,transform .2s;}
   .comm-card:hover .comm-arrow{opacity:1;transform:translateX(3px);}
 
@@ -616,29 +597,29 @@
   <div class="section-head">
     <div class="section-label">Learn With Me</div>
     <h2 class="section-title">Let's grow together —<br/>your pace, my guidance.</h2>
-    <p class="section-sub">From a quick 5-minute clarity call to in-depth 30-minute sessions — pick what fits your stage and budget.</p>
+    <p class="section-sub">From a quick 10-minute clarity call to in-depth guidance sessions — pick what fits your stage and budget.</p>
   </div>
 
   <div class="work-grid">
     <div class="work-card featured">
       <div class="card-icon">🎯</div>
       <div class="card-title">1:1 Strategy Call</div>
-      <p class="card-desc">A quick 5-minute strategy call focused on your immediate questions — exams, career clarity, articleship, productivity, or content growth.</p>
+      <p class="card-desc">A quick 10-minute strategy call focused on your immediate questions — exams, career clarity, articleship, productivity, or content growth.</p>
       <ul class="card-includes">
         <li>Quick personalised guidance</li>
         <li>Clear action steps for your situation</li>
         <li>Ask your doubts directly</li>
         <li>Key takeaways shared after the call</li>
       </ul>
-      <div class="card-price">₹29 <s>₹99</s> · 5 mins</div>
+      <div class="card-price">₹29 <s>₹99</s> · 10 mins</div>
       <a href="https://topmate.io/muhammedirshal/2134275?utm_source=public_profile&utm_campaign=muhammedirshal" class="card-btn" target="_blank">Book Your Slot →</a>
     </div>
     <div style="display:flex;flex-direction:column;gap:1.2rem;">
       <div class="work-card" style="flex:1;">
         <div class="card-icon">📝</div>
         <div class="card-title">Exam Strategy Session</div>
-        <p class="card-desc">Focused 30-minute session on your upcoming attempt — which subjects to prioritise, how to plan your last 30 days, and revision techniques.</p>
-        <div class="card-price">₹499 <s>₹999</s> · 30 mins</div>
+        <p class="card-desc">Focused 1-hour session on your upcoming attempt — which subjects to prioritise, how to plan your last 30 days, and revision techniques.</p>
+        <div class="card-price">₹499 <s>₹999</s> · 1 hour</div>
         <a href="https://topmate.io/muhammedirshal/2115605?utm_source=public_profile&utm_campaign=muhammedirshal" class="card-btn" target="_blank">Book Now →</a>
       </div>
     </div>
@@ -648,13 +629,13 @@
     <div class="work-card">
       <div class="card-icon">🎓</div>
       <div class="card-title">Career Guidance — CA / CMA / ACCA</div>
-      <p class="card-desc">30-min career guidance session for CA, CMA, and ACCA aspirants — choose the right path and plan confidently.</p>
+      <p class="card-desc">1-hour career guidance session for CA, CMA, and ACCA aspirants — choose the right path and plan confidently.</p>
       <ul class="card-includes">
         <li>Course &amp; career clarity</li>
         <li>Opportunities and scope</li>
         <li>Personalised guidance</li>
       </ul>
-      <div class="card-price">₹499 <s>₹999</s> · 30 mins</div>
+      <div class="card-price">₹499 <s>₹999</s> · 1 hour</div>
       <a href="https://topmate.io/muhammedirshal/2115605?utm_source=public_profile&utm_campaign=muhammedirshal" class="card-btn" target="_blank">Book Now →</a>
     </div>
     <div class="work-card">
@@ -683,22 +664,38 @@
   <div class="comm-grid">
     <a class="comm-card" href="https://chat.whatsapp.com/EHCdbUvAb0gFW6ff3VKU61" target="_blank">
       <div class="comm-icon">🌱</div>
-      <div class="comm-info"><div class="comm-name">CA Foundation Connect</div><div class="comm-tag">For Kerala-based Foundation students · Free to join</div></div>
+      <div class="comm-info">
+        <div class="comm-name">CA Foundation Connect</div>
+        <div class="comm-tag">For Kerala-based Foundation students · Free to join</div>
+        <div class="comm-count">👥 <span class="count-num" data-target="1800">1,800</span>+ members</div>
+      </div>
       <div class="comm-arrow">→</div>
     </a>
     <a class="comm-card" href="https://chat.whatsapp.com/LedAtANHF7M7Jh5KmdTQg2" target="_blank">
       <div class="comm-icon">📘</div>
-      <div class="comm-info"><div class="comm-name">CA Intermediate Connect</div><div class="comm-tag">For Kerala-based Intermediate students · Free to join</div></div>
+      <div class="comm-info">
+        <div class="comm-name">CA Intermediate Connect</div>
+        <div class="comm-tag">For Kerala-based Intermediate students · Free to join</div>
+        <div class="comm-count">👥 <span class="count-num" data-target="1000">1,000</span>+ members</div>
+      </div>
       <div class="comm-arrow">→</div>
     </a>
     <a class="comm-card" href="https://chat.whatsapp.com/Bv8sYE77UrD6TLfVo2UhUC" target="_blank">
       <div class="comm-icon">🏢</div>
-      <div class="comm-info"><div class="comm-name">CA/CMA Articleship Connect</div><div class="comm-tag">For All India CA/CMA Finalist students · Free to join</div></div>
+      <div class="comm-info">
+        <div class="comm-name">CA/CMA Articleship Connect</div>
+        <div class="comm-tag">For All India CA/CMA Finalist students · Free to join</div>
+        <div class="comm-count">👥 <span class="count-num" data-target="1400">1,400</span>+ members</div>
+      </div>
       <div class="comm-arrow">→</div>
     </a>
     <a class="comm-card" href="https://chat.whatsapp.com/D0y7Rg3ig0s9BGXYneQfo6" target="_blank">
       <div class="comm-icon">🏆</div>
-      <div class="comm-info"><div class="comm-name">CA Final Connect</div><div class="comm-tag">For All India CA Final students · Free to join</div></div>
+      <div class="comm-info">
+        <div class="comm-name">CA Final Connect</div>
+        <div class="comm-tag">For All India CA Final students · Free to join</div>
+        <div class="comm-count">👥 <span class="count-num" data-target="500">500</span>+ members</div>
+      </div>
       <div class="comm-arrow">→</div>
     </a>
   </div>
@@ -993,125 +990,6 @@
   </div>
 </div>
 
-<!-- JOURNEY TIMELINE -->
-<section id="journey">
-  <div class="section-head">
-    <div class="section-label">My Journey</div>
-    <h2 class="section-title">From Day One to<br/>Where We Are Now</h2>
-    <p class="section-sub">Every milestone built on the last — a story of consistency, community, and clarity.</p>
-  </div>
-  <div class="timeline">
-    <div class="tl-item">
-      <div class="tl-content left">
-        <div class="tl-year">2022</div>
-        <div class="tl-event">Started the CA Journey</div>
-        <div class="tl-desc">Took the first step toward becoming a Chartered Accountant — the beginning of everything.</div>
-      </div>
-      <div class="tl-dot"></div>
-      <div class="tl-empty"></div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-empty"></div>
-      <div class="tl-dot"></div>
-      <div class="tl-content right">
-        <div class="tl-year">2024</div>
-        <div class="tl-event">Cleared CA Intermediate — Both Groups, First Attempt ✅</div>
-        <div class="tl-desc">A milestone that proved strategy beats hard work alone. Both groups. One shot. No backlogs.</div>
-      </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-content left">
-        <div class="tl-year">2024</div>
-        <div class="tl-event">Mentored CA, CMA India &amp; CMA USA Students</div>
-        <div class="tl-desc">Spent 2 months mentoring students at IAM Studies, Calicut — guiding them across CA, CMA India, and CMA USA courses.</div>
-      </div>
-      <div class="tl-dot"></div>
-      <div class="tl-empty"></div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-empty"></div>
-      <div class="tl-dot"></div>
-      <div class="tl-content right">
-        <div class="tl-year">2024</div>
-        <div class="tl-event">Started Articleship in Bengaluru</div>
-        <div class="tl-desc">Began articleship in October 2024 in Bengaluru — currently ongoing until October 2026. Real-world CA training in the heart of India's startup capital.</div>
-      </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-content left">
-        <div class="tl-year">2024</div>
-        <div class="tl-event">Founded Mallu Articles Bengaluru</div>
-        <div class="tl-desc">A dedicated community for Kerala-based CA/CMA students pursuing articleship in Bengaluru — vacancy updates, referrals, events, and peer support.</div>
-      </div>
-      <div class="tl-dot"></div>
-      <div class="tl-empty"></div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-empty"></div>
-      <div class="tl-dot"></div>
-      <div class="tl-content right">
-        <div class="tl-year">2024</div>
-        <div class="tl-event">Started Building Communities Across Kerala</div>
-        <div class="tl-desc">Launched CA Connect communities — Foundation, Intermediate, Articleship, and Final — across Kerala to support students at every level.</div>
-      </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-content left">
-        <div class="tl-year">2025</div>
-        <div class="tl-event">Started Daily Content Creation</div>
-        <div class="tl-desc">Began creating career, study, and productivity content daily — reaching thousands of students across Instagram and LinkedIn.</div>
-      </div>
-      <div class="tl-dot"></div>
-      <div class="tl-empty"></div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-empty"></div>
-      <div class="tl-dot"></div>
-      <div class="tl-content right">
-        <div class="tl-year">2025</div>
-        <div class="tl-event">Organised Chai, Chill &amp; Chartered 🍵</div>
-        <div class="tl-desc">The first offline meetup of Mallu Articles Bengaluru — CA and CMA students connecting over chai, cultural activities, and real conversations.</div>
-      </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-content left">
-        <div class="tl-year">2026</div>
-        <div class="tl-event">Community Member Secures AIR 3 🥇</div>
-        <div class="tl-desc">A proud milestone — one of our CA Foundation Connect members secured All India Rank 3 in CA Foundation 2026. The community produces toppers.</div>
-      </div>
-      <div class="tl-dot" style="background:var(--gold);box-shadow:0 0 0 3px var(--gold);"></div>
-      <div class="tl-empty"></div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-empty"></div>
-      <div class="tl-dot"></div>
-      <div class="tl-content right">
-        <div class="tl-year">2026</div>
-        <div class="tl-event">Organised Mizaaniya 1.0 🌙</div>
-        <div class="tl-desc">A community Iftar gathering by Mallu Articles Bengaluru — fostering connections among CA/CMA students through fellowship and shared Ramadan experiences.</div>
-      </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-content left">
-        <div class="tl-year">2026</div>
-        <div class="tl-event">Articleship Completion (Ongoing → Oct 2026)</div>
-        <div class="tl-desc">Completing the final leg of articleship in Bengaluru — bridging classroom knowledge with real-world CA practice.</div>
-      </div>
-      <div class="tl-dot"></div>
-      <div class="tl-empty"></div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-empty"></div>
-      <div class="tl-dot" style="background:var(--gold);box-shadow:0 0 0 3px var(--gold);border:3px solid #fff;"></div>
-      <div class="tl-content right" style="border-color:rgba(212,175,55,.4);background:linear-gradient(135deg,#0D0B1A,#1A1040);">
-        <div class="tl-year" style="color:var(--gold);">2027</div>
-        <div class="tl-event" style="color:#fff;">Becoming CA ✨</div>
-        <div class="tl-desc" style="color:rgba(255,255,255,.65);">The destination — and a new beginning to serve students at a higher level. The journey doesn't end; it levels up.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- FREE RESOURCES -->
 <section id="free-resources">
   <div class="section-head">
@@ -1124,7 +1002,7 @@
       <div class="resource-icon">🧠</div>
       <div class="resource-title">Study Mindset Blueprint</div>
       <div class="resource-desc">Rewire how you think about CA exams. Mindset shifts that separate toppers from repeaters.</div>
-      <a href="https://wa.me/message/A6D35UO3ZV7ID1" class="resource-btn" target="_blank">Download Free →</a>
+      <a href="https://drive.google.com/file/d/1Q58t6dCdNm89a6VTls5Fx7BfD3qIEB2/view?usp=sharing" class="resource-btn" target="_blank" rel="noopener">Download Free →</a>
     </div>
     <div class="resource-card">
       <div class="resource-icon">📋</div>
@@ -1136,7 +1014,7 @@
       <div class="resource-icon">🗺️</div>
       <div class="resource-title">CA Foundation Roadmap</div>
       <div class="resource-desc">A subject-by-subject roadmap to clear Foundation confidently — built from real experience.</div>
-      <a href="https://wa.me/message/A6D35UO3ZV7ID1" class="resource-btn" target="_blank">Download Free →</a>
+      <a href="https://drive.google.com/file/d/1H662NMwQcRCYLduG_CyYpltToD8-AzYY/view?usp=drive_link" class="resource-btn" target="_blank" rel="noopener">Download Free →</a>
     </div>
     <div class="resource-card">
       <div class="resource-icon">🚀</div>
@@ -1147,24 +1025,26 @@
   </div>
 </section>
 
-<!-- NEWSLETTER -->
-<section id="newsletter">
-  <div class="newsletter-inner">
-    <div class="newsletter-badge">✦ JOIN THE INNER CIRCLE</div>
-    <h2 class="newsletter-title">Join 1000+ Students<br/>Already Growing</h2>
-    <p class="newsletter-sub">Get the resources, tips, and updates that serious CA students rely on — straight to your inbox.</p>
-    <div class="newsletter-perks">
-      <span class="nl-perk">✓ Study Tips</span>
-      <span class="nl-perk">✓ Career Updates</span>
-      <span class="nl-perk">✓ Workshop Announcements</span>
-      <span class="nl-perk">✓ Free Resources</span>
+<!-- TELEGRAM -->
+<section id="telegram">
+  <a class="tg-card" href="https://t.me/learnwithirshal" target="_blank" rel="noopener">
+    <div class="tg-icon">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
     </div>
-    <div class="newsletter-form">
-      <input type="email" id="nlEmail" placeholder="Your email address" autocomplete="email"/>
-      <button onclick="joinNewsletter()">Join Free</button>
+    <h2 class="tg-title">Learn With <em>Irshal</em></h2>
+    <p class="tg-sub">Join our free Telegram channel for useful study resources, smart study tips, productivity hacks, exam updates, and much more. Learn smarter, stay updated, and make your preparation easier!</p>
+    <div class="tg-perks">
+      <span class="tg-perk">✓ Study Resources</span>
+      <span class="tg-perk">✓ Smart Study Tips</span>
+      <span class="tg-perk">✓ Productivity Hacks</span>
+      <span class="tg-perk">✓ Exam Updates</span>
     </div>
-    <div class="nl-success" id="nlSuccess">🎉 You're in! Check your inbox for a welcome gift.</div>
-  </div>
+    <span class="tg-btn">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+      Join Telegram Channel
+    </span>
+    <div class="tg-note">100% free · No spam</div>
+  </a>
 </section>
 
 <!-- FEATURED CONTENT -->
@@ -1246,7 +1126,7 @@
 <div class="float-cta" id="floatCta">
   <button class="float-cta-close" onclick="document.getElementById('floatCta').style.display='none'">✕</button>
   <div class="float-cta-label">Need Guidance?</div>
-  <div class="float-cta-title">Book a 5 Min Call<br/>for just ₹29</div>
+  <div class="float-cta-title">Book a 10 Min Call<br/>for just ₹29</div>
   <a class="float-cta-btn" href="https://topmate.io/muhammedirshal/2134275?utm_source=public_profile&utm_campaign=muhammedirshal" target="_blank">Book Now →</a>
 </div>
 
@@ -1483,13 +1363,37 @@ document.getElementById('exitPopup').addEventListener('click', function(e){
   if(e.target === this) closeExitPopup();
 });
 
-// ── NEWSLETTER SUBMIT ──
-function joinNewsletter(){
-  const inp = document.getElementById('nlEmail');
-  if(!inp.value || !inp.value.includes('@')){ inp.focus(); return; }
-  inp.value = '';
-  document.getElementById('nlSuccess').style.display = 'block';
-}
+// ── COMMUNITY MEMBER COUNT-UP ──
+(function(){
+  const nums = document.querySelectorAll('.count-num');
+  if(!nums.length) return;
+  const fmt = n => n.toLocaleString('en-IN');
+  function run(el){
+    const target = parseInt(el.dataset.target, 10);
+    const dur = 1800;
+    const t0 = performance.now();
+    function step(now){
+      const p = Math.min((now - t0) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(Math.floor(eased * target));
+      if(p < 1){ requestAnimationFrame(step); }
+      else { el.textContent = fmt(target); }
+    }
+    requestAnimationFrame(step);
+  }
+  // start at 0 only when JS is running; without JS the final number stays visible
+  nums.forEach(el => { el.textContent = '0'; });
+  if(!('IntersectionObserver' in window)){
+    nums.forEach(el => { el.textContent = fmt(parseInt(el.dataset.target, 10)); });
+    return;
+  }
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(en => {
+      if(en.isIntersecting){ run(en.target); obs.unobserve(en.target); }
+    });
+  }, { threshold: 0.6 });
+  nums.forEach(el => io.observe(el));
+})();
 
 // ── SCROLL REVEAL ──
 const observer = new IntersectionObserver(entries => {
@@ -1497,7 +1401,7 @@ const observer = new IntersectionObserver(entries => {
     if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
   });
 }, { threshold: 0.1 });
-document.querySelectorAll('.work-card,.comm-card,.mallu-card,.shop-card,.workshop-card,.ig-card,.tracker-review,.trust-item,.tl-content,.resource-card,.featured-card').forEach(el => {
+document.querySelectorAll('.work-card,.comm-card,.mallu-card,.shop-card,.workshop-card,.ig-card,.tracker-review,.trust-item,.resource-card,.featured-card').forEach(el => {
   el.style.opacity='0'; el.style.transform='translateY(20px)';
   el.style.transition='opacity .5s ease, transform .5s ease';
   observer.observe(el);
